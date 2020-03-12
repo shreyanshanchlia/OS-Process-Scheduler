@@ -1,12 +1,21 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class Themes_image : MonoBehaviour
 {
+    public enum ThemeType
+    {
+        ImageSwap,
+        ImageColor,
+        TextColor,
+        TMPColor,
+
+    }
     public Sprite dark_image, light_image;
     public Image refImage;
-    [Header("theme for color")]
-    public bool useColor;
+    [Header("Theme Type")]
+    public ThemeType themeType;
     public Color32 dark_color = new Color32(32,32,32,255), light_color = new Color32(223, 223, 223, 255);
     void Start()
     {
@@ -17,17 +26,21 @@ public class Themes_image : MonoBehaviour
     {
         int theme = PlayerPrefs.GetInt("theme", 0);
         if (theme == 0) return;
-        if (!useColor)
+        if (themeType == ThemeType.ImageSwap)
         {
             changeThemeImage();
         }
+        else if(themeType == ThemeType.ImageColor)
+        {
+            changeThemeImageColor();
+        }
         else
         {
-            changeThemeColor();
+            Debug.Log("Not yet implemented");
         }
     }
 
-    private void changeThemeColor()
+    private void changeThemeImageColor()
     {
         refImage.color = light_color;
     }

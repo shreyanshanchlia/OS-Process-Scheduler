@@ -213,7 +213,7 @@ MonoBehaviour:
   dark_image: {fileID: 0}
   light_image: {fileID: 0}
   refImage: {fileID: 308466629}
-  useColor: 1
+  themeType: 1
   dark_color:
     serializedVersion: 2
     rgba: 4280295456
@@ -309,7 +309,7 @@ MonoBehaviour:
   dark_image: {fileID: 21300000, guid: c4ce27367278c4380a08bedcd3137ff1, type: 3}
   light_image: {fileID: 21300000, guid: 338de845e320441e787608e5eb54ce36, type: 3}
   refImage: {fileID: 341475016}
-  useColor: 0
+  themeType: 0
   dark_color:
     serializedVersion: 2
     rgba: 4280295456
@@ -461,7 +461,7 @@ MonoBehaviour:
   dark_image: {fileID: 0}
   light_image: {fileID: 0}
   refImage: {fileID: 359600216}
-  useColor: 1
+  themeType: 1
   dark_color:
     serializedVersion: 2
     rgba: 4294967295
@@ -557,7 +557,7 @@ MonoBehaviour:
   dark_image: {fileID: 0}
   light_image: {fileID: 0}
   refImage: {fileID: 504597604}
-  useColor: 1
+  themeType: 1
   dark_color:
     serializedVersion: 2
     rgba: 4280295456
@@ -1231,7 +1231,7 @@ MonoBehaviour:
   dark_image: {fileID: 0}
   light_image: {fileID: 0}
   refImage: {fileID: 1134489722}
-  useColor: 1
+  themeType: 1
   dark_color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   dark_image: {fileID: 21300000, guid: c4ce27367278c4380a08bedcd3137ff1, type: 3}
   light_image: {fileID: 21300000, guid: 338de845e320441e787608e5eb54ce36, type: 3}
   refImage: {fileID: 1569333134}
-  useColor: 0
+  themeType: 0
   dark_color:
     serializedVersion: 2
     rgba: 4280295456
