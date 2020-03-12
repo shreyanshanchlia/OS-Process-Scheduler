@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 308466628}
   - component: {fileID: 308466630}
   - component: {fileID: 308466629}
+  - component: {fileID: 308466631}
   m_Layer: 5
   m_Name: Main Panel Init
   m_TagString: Untagged
@@ -197,6 +198,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308466627}
   m_CullTransparentMesh: 0
+--- !u!114 &308466631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308466627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93badb550abe7a54f96f514ea889013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dark_image: {fileID: 0}
+  light_image: {fileID: 0}
+  refImage: {fileID: 308466629}
+  useColor: 1
+  dark_color:
+    serializedVersion: 2
+    rgba: 4280295456
+  light_color:
+    serializedVersion: 2
+    rgba: 4292861919
 --- !u!1 &341475014
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +231,7 @@ GameObject:
   - component: {fileID: 341475015}
   - component: {fileID: 341475017}
   - component: {fileID: 341475016}
+  - component: {fileID: 341475018}
   m_Layer: 5
   m_Name: Image Bottom
   m_TagString: Untagged
@@ -270,6 +294,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341475014}
   m_CullTransparentMesh: 0
+--- !u!114 &341475018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341475014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93badb550abe7a54f96f514ea889013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dark_image: {fileID: 21300000, guid: c4ce27367278c4380a08bedcd3137ff1, type: 3}
+  light_image: {fileID: 21300000, guid: 338de845e320441e787608e5eb54ce36, type: 3}
+  refImage: {fileID: 341475016}
+  useColor: 0
+  dark_color:
+    serializedVersion: 2
+    rgba: 4280295456
+  light_color:
+    serializedVersion: 2
+    rgba: 4292861919
 --- !u!1 &359600213
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +328,7 @@ GameObject:
   - component: {fileID: 359600217}
   - component: {fileID: 359600216}
   - component: {fileID: 359600215}
+  - component: {fileID: 359600218}
   m_Layer: 5
   m_Name: new Button
   m_TagString: Untagged
@@ -399,6 +446,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359600213}
   m_CullTransparentMesh: 0
+--- !u!114 &359600218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359600213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93badb550abe7a54f96f514ea889013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dark_image: {fileID: 0}
+  light_image: {fileID: 0}
+  refImage: {fileID: 359600216}
+  useColor: 1
+  dark_color:
+    serializedVersion: 2
+    rgba: 4294967295
+  light_color:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!1 &504597602
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +479,7 @@ GameObject:
   - component: {fileID: 504597603}
   - component: {fileID: 504597605}
   - component: {fileID: 504597604}
+  - component: {fileID: 504597606}
   m_Layer: 5
   m_Name: Main Panel Tab
   m_TagString: Untagged
@@ -472,6 +542,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504597602}
   m_CullTransparentMesh: 0
+--- !u!114 &504597606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504597602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93badb550abe7a54f96f514ea889013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dark_image: {fileID: 0}
+  light_image: {fileID: 0}
+  refImage: {fileID: 504597604}
+  useColor: 1
+  dark_color:
+    serializedVersion: 2
+    rgba: 4280295456
+  light_color:
+    serializedVersion: 2
+    rgba: 4292861919
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1108,7 @@ GameObject:
   - component: {fileID: 1134489723}
   - component: {fileID: 1134489722}
   - component: {fileID: 1134489721}
+  - component: {fileID: 1134489724}
   m_Layer: 5
   m_Name: Load Button
   m_TagString: Untagged
@@ -1123,6 +1216,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134489719}
   m_CullTransparentMesh: 0
+--- !u!114 &1134489724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134489719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93badb550abe7a54f96f514ea889013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dark_image: {fileID: 0}
+  light_image: {fileID: 0}
+  refImage: {fileID: 1134489722}
+  useColor: 1
+  dark_color:
+    serializedVersion: 2
+    rgba: 4294967295
+  light_color:
+    serializedVersion: 2
+    rgba: 4280295456
 --- !u!1 &1566665706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1286,7 @@ GameObject:
   - component: {fileID: 1569333133}
   - component: {fileID: 1569333135}
   - component: {fileID: 1569333134}
+  - component: {fileID: 1569333136}
   m_Layer: 5
   m_Name: ImageTop
   m_TagString: Untagged
@@ -1233,6 +1349,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569333132}
   m_CullTransparentMesh: 0
+--- !u!114 &1569333136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569333132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93badb550abe7a54f96f514ea889013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dark_image: {fileID: 21300000, guid: c4ce27367278c4380a08bedcd3137ff1, type: 3}
+  light_image: {fileID: 21300000, guid: 338de845e320441e787608e5eb54ce36, type: 3}
+  refImage: {fileID: 1569333134}
+  useColor: 0
+  dark_color:
+    serializedVersion: 2
+    rgba: 4280295456
+  light_color:
+    serializedVersion: 2
+    rgba: 4292861919
 --- !u!1 &2033652578
 GameObject:
   m_ObjectHideFlags: 0
