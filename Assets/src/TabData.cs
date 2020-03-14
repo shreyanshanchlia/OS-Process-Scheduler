@@ -8,6 +8,7 @@ public class TabData : MonoBehaviour
     { FirstComeFirstServe, ShortestJobFirst, RoundRobin, ShortestRemainingTimeFirst};
     [Tooltip("FirstComeFirstServe, ShortestJobFirst, RoundRobin, ShortestRemainingTimeFirst")]
     public int Scheduler;
+    public bool preemptive = true;
     public List<PropertiesData> propertiesDatas;
 
     public void AssignScheduler(int _scheduler)
