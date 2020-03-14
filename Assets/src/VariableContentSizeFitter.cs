@@ -4,7 +4,7 @@ public class VariableContentSizeFitter : MonoBehaviour
 {
     public RectTransform ToHandleRectTransform;
     public RectTransform[] childRectTransform;
-    public float AdditionalOffset = 0;
+    float AdditionalOffset = 0;
     void Start()
     {
         FitSize();
