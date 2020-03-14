@@ -8,6 +8,10 @@ public class DestroyObject : MonoBehaviour
     {
         if (ToDestroy == null)
             return;
+        foreach(var tabData in FindObjectsOfType<TabData>())
+        {
+            tabData.RefreshData();
+        }
         Destroy(ToDestroy);
     }
 }
