@@ -632,7 +632,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 70252141}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1464379615}
+        m_MethodName: AddValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &70252141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6493,6 +6504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48e22e70ab369a43ad157a07690487c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpeedSlider: {fileID: 2066138133}
   speed: 1
   speedText: {fileID: 1781612412}
 --- !u!1 &1473247766
@@ -8314,7 +8326,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1867877816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1464379615}
+        m_MethodName: SubtractValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1867877816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9037,7 +9060,7 @@ GameObject:
   - component: {fileID: 2066138132}
   - component: {fileID: 2066138133}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Speed Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9108,7 +9131,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2072521333}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 20
+  m_MaxValue: 19
   m_WholeNumbers: 1
   m_Value: 10
   m_OnValueChanged:
