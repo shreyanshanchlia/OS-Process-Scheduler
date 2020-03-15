@@ -9589,6 +9589,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Process
       objectReference: {fileID: 0}
+    - target: {fileID: 5453334567714179511, guid: 7499fd92aed1878408a00073740a3b3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5453334567719839491, guid: 7499fd92aed1878408a00073740a3b3d,
         type: 3}
       propertyPath: m_AnchorMin.y
