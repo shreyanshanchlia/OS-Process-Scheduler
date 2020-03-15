@@ -642,7 +642,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &70252141
 MonoBehaviour:
@@ -5135,6 +5135,7 @@ GameObject:
   - component: {fileID: 1089228326}
   - component: {fileID: 1089228328}
   - component: {fileID: 1089228327}
+  - component: {fileID: 1089228329}
   m_Layer: 5
   m_Name: realtime Toggle
   m_TagString: Untagged
@@ -5232,7 +5233,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 1089228329}
+        m_MethodName: toggleSliderOnValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   m_IsOn: 1
+--- !u!114 &1089228329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089228325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5140de6e58b8dc14e8188087c447eb0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToToggleSlider: {fileID: 2066138133}
+  defaultSliderValue: 10
 --- !u!1 &1134489719
 GameObject:
   m_ObjectHideFlags: 0
@@ -6505,6 +6531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedSlider: {fileID: 2066138133}
+  speedToggle: {fileID: 1089228328}
   speed: 1
   speedText: {fileID: 1781612412}
 --- !u!1 &1473247766
@@ -7595,7 +7622,7 @@ GameObject:
   - component: {fileID: 1781612413}
   - component: {fileID: 1781612412}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: speed InputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
