@@ -2,7 +2,7 @@
 
 public class AddObject : MonoBehaviour
 {
-    public GameObject PrefabToInstanciate;
+    public GameObject PrefabToInstantiate;
     public GameObject parentGameObject;
 
     public TabData tabData;
@@ -10,7 +10,7 @@ public class AddObject : MonoBehaviour
     PropertiesData instantiatedPropertiesData;
     public void AddPrefabInstance()
     {
-        InstantiatedGameObject = Instantiate(PrefabToInstanciate, parentGameObject.transform);
+        InstantiatedGameObject = Instantiate(PrefabToInstantiate, parentGameObject.transform);
         try
         {
             instantiatedPropertiesData = InstantiatedGameObject.GetComponent<PropertiesData>();
