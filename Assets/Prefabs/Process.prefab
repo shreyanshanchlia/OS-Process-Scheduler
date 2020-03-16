@@ -2879,7 +2879,7 @@ GameObject:
   - component: {fileID: 5453334567714179514}
   - component: {fileID: 5453334567714179509}
   m_Layer: 5
-  m_Name: Priority (TMP) (1)
+  m_Name: Priority (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
