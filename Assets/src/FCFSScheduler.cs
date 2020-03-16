@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class FCFSScheduler : MonoBehaviour
 {
@@ -15,6 +13,7 @@ public class FCFSScheduler : MonoBehaviour
     public void run()
     {
         waiting = new List<PropertiesData>();
+        arrived = new List<PropertiesData>();
         foreach (var _process in scheduler.ProcessList)
         {
             waiting.Add(_process);
@@ -27,8 +26,9 @@ public class FCFSScheduler : MonoBehaviour
         {
             foreach (PropertiesData propertiesData in waiting)
             {
-                if (scheduler.SchedulerTime < propertiesData.ArrivalTime)
+                if (scheduler.SchedulerTime > propertiesData.ArrivalTime)
                 {
+                    print($"scheduler time {scheduler.SchedulerTime}, arrival time {propertiesData.ArrivalTime}");
                     arrived.Add(propertiesData);
                     waiting.Remove(propertiesData);
                 }
@@ -41,7 +41,7 @@ public class FCFSScheduler : MonoBehaviour
                     arrived.RemoveAt(0);
                     processing = true;
                     ProcessorFreeAt = CurrentlyProcessing.BurstTime;
-                    print(CurrentlyProcessing);
+                    print(CurrentlyProcessing.BurstTime+" " + scheduler.SchedulerTime);
                 }
             }
             else
@@ -53,6 +53,7 @@ public class FCFSScheduler : MonoBehaviour
                     if(waiting.Count == 0 && arrived.Count == 0)
                     {
                         running = false;
+                        scheduler.running = false;
                     }
                 }
             }
