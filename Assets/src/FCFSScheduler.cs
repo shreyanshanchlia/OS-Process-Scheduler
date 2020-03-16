@@ -29,7 +29,6 @@ public class FCFSScheduler : MonoBehaviour
             {
                 if (scheduler.SchedulerTime > propertiesData.ArrivalTime)
                 {
-                    print($"scheduler time {scheduler.SchedulerTime}, arrival time {propertiesData.ArrivalTime}");
                     arrived.Add(propertiesData);
                     waiting.Remove(propertiesData);
                 }
@@ -43,7 +42,6 @@ public class FCFSScheduler : MonoBehaviour
                     processing = true;
                     ProcessorFreeAt = CurrentlyProcessing.BurstTime;
                     chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
-                    print(CurrentlyProcessing.BurstTime+" " + scheduler.SchedulerTime);
                 }
             }
             else
