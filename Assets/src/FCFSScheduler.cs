@@ -4,6 +4,7 @@ using UnityEngine;
 public class FCFSScheduler : MonoBehaviour
 {
     public Scheduler scheduler;
+    public ChartMaker chartMaker;
     private List<PropertiesData> arrived;
     private List<PropertiesData> waiting;
     bool running = false;
@@ -41,6 +42,7 @@ public class FCFSScheduler : MonoBehaviour
                     arrived.RemoveAt(0);
                     processing = true;
                     ProcessorFreeAt = CurrentlyProcessing.BurstTime;
+                    chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
                     print(CurrentlyProcessing.BurstTime+" " + scheduler.SchedulerTime);
                 }
             }
