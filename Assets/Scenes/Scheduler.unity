@@ -768,6 +768,7 @@ GameObject:
   - component: {fileID: 96677240}
   - component: {fileID: 96677239}
   - component: {fileID: 96677241}
+  - component: {fileID: 96677242}
   m_Layer: 5
   m_Name: Data Scheduler
   m_TagString: Untagged
@@ -818,6 +819,7 @@ MonoBehaviour:
   tabData: {fileID: 1055689843}
   summaryManager: {fileID: 1754978061}
   fcfsScheduler: {fileID: 96677239}
+  sjfScheduler: {fileID: 96677242}
   SchedulerTime: 0
   running: 0
   ProcessList: []
@@ -837,6 +839,20 @@ MonoBehaviour:
   prefabObject: {fileID: 3153579600776255777, guid: d4674ed2e6cea6646a8f47064911e68e,
     type: 3}
   ganttChartHolder: {fileID: 85473369}
+--- !u!114 &96677242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96677237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86da7e9da1f1f604eafd623e0d5ac8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scheduler: {fileID: 96677240}
+  chartMaker: {fileID: 96677241}
 --- !u!1 &182682647
 GameObject:
   m_ObjectHideFlags: 0
@@ -5696,7 +5712,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 969577460}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999917
+  m_Size: 0.9999983
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10305,7 +10321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0006713867, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1518418616

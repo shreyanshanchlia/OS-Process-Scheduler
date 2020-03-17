@@ -6,6 +6,7 @@ public class Scheduler : MonoBehaviour
     [SerializeField] private TabData tabData;
     public SummaryManager summaryManager;
     public FCFSScheduler fcfsScheduler;
+    public SJFScheduler sjfScheduler;
     [HideInInspector] public float SchedulerTime; 
     [HideInInspector] public bool running = false;
     [HideInInspector] public List<PropertiesData> ProcessList;
@@ -18,6 +19,17 @@ public class Scheduler : MonoBehaviour
         if (tabData.Scheduler == 0)
         {
             fcfsScheduler.run();
+        }
+        if (tabData.Scheduler == 1)
+        {
+            if (tabData.preemptive)
+            {
+
+            }
+            else
+            {
+                sjfScheduler.run();
+            }
         }
     }
     public void makeSummary(PropertiesData CurrentlyProcessing)
