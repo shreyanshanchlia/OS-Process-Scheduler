@@ -6,7 +6,6 @@ public class FCFSScheduler : MonoBehaviour
 {
     public Scheduler scheduler;
     public ChartMaker chartMaker;
-    public SummaryManager summaryManager;
     private Queue<PropertiesData> arrived;
     private List<PropertiesData> waiting;
     bool running = false;
@@ -36,10 +35,10 @@ public class FCFSScheduler : MonoBehaviour
                     waiting.Remove(propertiesData);
                 }
             }
-            if(!processing)
+            if (!processing)
             {
                 if (arrived.Count > 0)
-                { 
+                {
                     CurrentlyProcessing = arrived.Dequeue();
                     processing = true;
                     ProcessorFreeAt = CurrentlyProcessing.BurstTime;
@@ -49,20 +48,11 @@ public class FCFSScheduler : MonoBehaviour
             else
             {
                 ProcessorFreeAt -= Time.deltaTime * Time.timeScale;
-                if(ProcessorFreeAt <= 0)
+                if (ProcessorFreeAt <= 0)
                 {
-                    #region make Summary
-                    SummaryData summaryData = new SummaryData();
-                    summaryData.ProcessName = CurrentlyProcessing.ProcessName;
-                    summaryData.ArrivalTime = CurrentlyProcessing.ArrivalTime;
-                    summaryData.BurstTime = CurrentlyProcessing.BurstTime;
-                    summaryData.CompilationTime = scheduler.SchedulerTime;
-                    summaryData.TurnAroundTime = summaryData.CompilationTime - summaryData.ArrivalTime;
-                    summaryData.WaitingTime = summaryData.TurnAroundTime - summaryData.BurstTime;
-                    summaryManager.summaryDatas.Add(summaryData);
-					#endregion
-					processing = false;
-                    if(waiting.Count == 0 && arrived.Count == 0)
+                    scheduler.makeSummary(CurrentlyProcessing);
+                    processing = false;
+                    if (waiting.Count == 0 && arrived.Count == 0)
                     {
                         running = false;
                         scheduler.running = false;

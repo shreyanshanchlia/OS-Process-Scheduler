@@ -4,10 +4,11 @@ using TMPro;
 public class Scheduler : MonoBehaviour
 {
     [SerializeField] private TabData tabData;
+    public SummaryManager summaryManager;
     public FCFSScheduler fcfsScheduler;
-    public float SchedulerTime; 
-    public bool running = false;
-    public List<PropertiesData> ProcessList;
+    [HideInInspector] public float SchedulerTime; 
+    [HideInInspector] public bool running = false;
+    [HideInInspector] public List<PropertiesData> ProcessList;
     public TextMeshProUGUI schedulerTimeText;
     public void RunScheduler()     
     {
@@ -18,6 +19,17 @@ public class Scheduler : MonoBehaviour
         {
             fcfsScheduler.run();
         }
+    }
+    public void makeSummary(PropertiesData CurrentlyProcessing)
+    {
+        SummaryData summaryData = new SummaryData();
+        summaryData.ProcessName = CurrentlyProcessing.ProcessName;
+        summaryData.ArrivalTime = CurrentlyProcessing.ArrivalTime;
+        summaryData.BurstTime = CurrentlyProcessing.BurstTime;
+        summaryData.CompilationTime = SchedulerTime;
+        summaryData.TurnAroundTime = summaryData.CompilationTime - summaryData.ArrivalTime;
+        summaryData.WaitingTime = summaryData.TurnAroundTime - summaryData.BurstTime;
+        summaryManager.summaryDatas.Add(summaryData);
     }
     private void Update()
     {

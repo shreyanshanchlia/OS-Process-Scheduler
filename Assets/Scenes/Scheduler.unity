@@ -803,7 +803,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scheduler: {fileID: 96677240}
   chartMaker: {fileID: 96677241}
-  summaryManager: {fileID: 1754978061}
 --- !u!114 &96677240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,6 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabData: {fileID: 1055689843}
+  summaryManager: {fileID: 1754978061}
   fcfsScheduler: {fileID: 96677239}
   SchedulerTime: 0
   running: 0
@@ -5696,7 +5696,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 969577460}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999986
+  m_Size: 0.99999917
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10305,7 +10305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00024414062, y: 0}
+  m_AnchoredPosition: {x: 0.0006713867, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1518418616

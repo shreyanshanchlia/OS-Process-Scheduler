@@ -13,14 +13,26 @@ public class PropertiesData : MonoBehaviour
     }
     public void UpdateArrivalTime(string _ArrivalTime)
     {
-        ArrivalTime = int.Parse(_ArrivalTime);
+        try
+        {
+            ArrivalTime = int.Parse(_ArrivalTime);
+        }
+        catch { }
     }
     public void UpdateBurstTime(string _BurstTime)
     {
-        BurstTime = int.Parse(_BurstTime);
+        try
+        {
+            BurstTime = int.Parse(_BurstTime);
+        }
+        catch { }
     }
     public void UpdatePriority(string _Priority)
     {
-        Priority = int.Parse(_Priority);
+        try
+        {
+            Priority = int.Parse(_Priority);
+        }
+        catch { }
     }
 }
