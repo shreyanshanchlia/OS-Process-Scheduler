@@ -6,7 +6,7 @@ public class PropertiesData : MonoBehaviour
     public int ArrivalTime = 0;
     public int BurstTime = 1;
     public int Priority = 0;
-
+    public float remainingBurstTime = 0;
     public void UpdateProcessName(string _ProcessName)
     {
         ProcessName = _ProcessName;
@@ -24,6 +24,7 @@ public class PropertiesData : MonoBehaviour
         try
         {
             BurstTime = int.Parse(_BurstTime);
+            remainingBurstTime = BurstTime;
         }
         catch { }
     }

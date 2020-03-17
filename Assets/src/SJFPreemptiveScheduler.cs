@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SJFScheduler : MonoBehaviour
+public class SJFPreemptiveScheduler : MonoBehaviour
 {
     public Scheduler scheduler;
     public ChartMaker chartMaker;
@@ -11,6 +11,7 @@ public class SJFScheduler : MonoBehaviour
     bool processing = false;
     PropertiesData CurrentlyProcessing;
     private float ProcessorFreeAt = 0.0f;
+    private float ProcessStartedAt = 0.0f;
     public void run()
     {
         waiting = new List<PropertiesData>();
@@ -51,7 +52,8 @@ public class SJFScheduler : MonoBehaviour
                     }
                     arrived.Remove(CurrentlyProcessing);
                     processing = true;
-                    ProcessorFreeAt = CurrentlyProcessing.BurstTime;
+                    ProcessorFreeAt = Mathf.Min(CurrentlyProcessing.BurstTime, 1);
+                    ProcessStartedAt = scheduler.SchedulerTime;
                     chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
                 }
             }
@@ -60,7 +62,15 @@ public class SJFScheduler : MonoBehaviour
                 ProcessorFreeAt -= Time.deltaTime * Time.timeScale;
                 if (ProcessorFreeAt <= 0)
                 {
-                    scheduler.makeSummary(CurrentlyProcessing);
+                    if (CurrentlyProcessing.remainingBurstTime <= 0)
+                    {
+                        scheduler.makeSummary(CurrentlyProcessing);
+                    }
+                    else
+                    {
+                        CurrentlyProcessing.remainingBurstTime -= (scheduler.SchedulerTime - ProcessStartedAt);  //1
+                        arrived.Add(CurrentlyProcessing);
+                    }
                     processing = false;
                     if (waiting.Count == 0 && arrived.Count == 0)
                     {

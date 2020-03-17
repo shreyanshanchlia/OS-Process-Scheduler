@@ -7,6 +7,7 @@ public class Scheduler : MonoBehaviour
     public SummaryManager summaryManager;
     public FCFSScheduler fcfsScheduler;
     public SJFScheduler sjfScheduler;
+    public SJFPreemptiveScheduler sjfPreemptiveScheduler;
     [HideInInspector] public float SchedulerTime; 
     [HideInInspector] public bool running = false;
     [HideInInspector] public List<PropertiesData> ProcessList;
@@ -24,7 +25,7 @@ public class Scheduler : MonoBehaviour
         {
             if (tabData.preemptive)
             {
-
+                sjfPreemptiveScheduler.run();
             }
             else
             {
