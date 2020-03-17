@@ -5,7 +5,7 @@ public class FCFSScheduler : MonoBehaviour
 {
     public Scheduler scheduler;
     public ChartMaker chartMaker;
-    private List<PropertiesData> arrived;
+    private Queue<PropertiesData> arrived;
     private List<PropertiesData> waiting;
     bool running = false;
     bool processing = false;
@@ -14,7 +14,7 @@ public class FCFSScheduler : MonoBehaviour
     public void run()
     {
         waiting = new List<PropertiesData>();
-        arrived = new List<PropertiesData>();
+        arrived = new Queue<PropertiesData>();
         foreach (var _process in scheduler.ProcessList)
         {
             waiting.Add(_process);
@@ -25,20 +25,20 @@ public class FCFSScheduler : MonoBehaviour
     {
         if (running)
         {
-            foreach (PropertiesData propertiesData in waiting)
+            for (int i = 0; i < waiting.Count; i++)
             {
+                PropertiesData propertiesData = waiting[i];
                 if (scheduler.SchedulerTime > propertiesData.ArrivalTime)
                 {
-                    arrived.Add(propertiesData);
+                    arrived.Enqueue(propertiesData);
                     waiting.Remove(propertiesData);
                 }
             }
             if(!processing)
             {
                 if (arrived.Count > 0)
-                {
-                    CurrentlyProcessing = arrived[0];
-                    arrived.RemoveAt(0);
+                { 
+                    CurrentlyProcessing = arrived.Dequeue();
                     processing = true;
                     ProcessorFreeAt = CurrentlyProcessing.BurstTime;
                     chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
