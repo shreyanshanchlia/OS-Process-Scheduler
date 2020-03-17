@@ -29,7 +29,7 @@ public class FCFSScheduler : MonoBehaviour
             for (int i = 0; i < waiting.Count; i++)
             {
                 PropertiesData propertiesData = waiting[i];
-                if (scheduler.SchedulerTime > propertiesData.ArrivalTime)
+                if (scheduler.SchedulerTime >= propertiesData.ArrivalTime)
                 {
                     arrived.Enqueue(propertiesData);
                     waiting.Remove(propertiesData);

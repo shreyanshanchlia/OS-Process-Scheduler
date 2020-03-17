@@ -25,4 +25,9 @@ public class TabData : MonoBehaviour
         yield return null;
         propertiesDatas.RemoveAll(item => item == null);
     }
+    public void SetPreemptive(bool _preemptive)
+    {
+        preemptive = _preemptive;
+        print(_preemptive);
+    }
 }
