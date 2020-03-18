@@ -1936,6 +1936,56 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2058257715545100809, guid: effdb560ef758da4192e3a0b3baf5c11,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058257715545100809, guid: effdb560ef758da4192e3a0b3baf5c11,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -130
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058257715922000033, guid: effdb560ef758da4192e3a0b3baf5c11,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058257715922000033, guid: effdb560ef758da4192e3a0b3baf5c11,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058257716309271267, guid: effdb560ef758da4192e3a0b3baf5c11,
+        type: 3}
+      propertyPath: m_text
+      value: Scheduler
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058257716309271267, guid: effdb560ef758da4192e3a0b3baf5c11,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 31.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058257716309271267, guid: effdb560ef758da4192e3a0b3baf5c11,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058257716309271267, guid: effdb560ef758da4192e3a0b3baf5c11,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058257716309271267, guid: effdb560ef758da4192e3a0b3baf5c11,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058257716309271267, guid: effdb560ef758da4192e3a0b3baf5c11,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: effdb560ef758da4192e3a0b3baf5c11, type: 3}
 --- !u!1001 &7130417487542866054
