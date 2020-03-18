@@ -10,13 +10,19 @@ public class Scheduler : MonoBehaviour
     public SJFPreemptiveScheduler sjfPreemptiveScheduler;
     public RoundRobinScheduler roundRobinScheduler;
     public PriorityScheduler priorityScheduler;
-    public PrioritySchedulerPreemptive priorityPreemptiveScheduler;
+    public PriorityPreemptiveScheduler priorityPreemptiveScheduler;
     [HideInInspector] public float SchedulerTime; 
     [HideInInspector] public bool running = false;
     [HideInInspector] public List<PropertiesData> ProcessList;
     public TextMeshProUGUI schedulerTimeText;
+    private bool SchedulerPause = false;
     public void RunScheduler()     
     {
+        if(running && SchedulerPause)
+        {
+            SchedulerPause = false;
+            return;
+        }
         ProcessList = new List<PropertiesData>();
         ProcessList = tabData.propertiesDatas;
         running = true;
@@ -58,6 +64,10 @@ public class Scheduler : MonoBehaviour
             }
         }
     }
+    public void PauseScheduler()
+    {
+        SchedulerPause = true;
+    }
     public void makeSummary(PropertiesData CurrentlyProcessing)
     {
         SummaryData summaryData = new SummaryData();
@@ -73,8 +83,11 @@ public class Scheduler : MonoBehaviour
     {
         if (running)
         {
-            SchedulerTime += Time.deltaTime * Time.timeScale;
-            schedulerTimeText.text = SchedulerTime.ToString("f4");
+            if (!SchedulerPause)
+            {
+                SchedulerTime += Time.deltaTime * Time.timeScale;
+                schedulerTimeText.text = SchedulerTime.ToString("f4");
+            }
         }
     }
 }
