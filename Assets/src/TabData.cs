@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine;
 
 public enum schedulerType
-{ FirstComeFirstServe, ShortestJobFirst, RoundRobin, ShortestRemainingTimeFirst};
+{ FirstComeFirstServe, ShortestJobFirst, RoundRobin, Priority};
 
 public class TabData : MonoBehaviour
 {
-    [Tooltip("FirstComeFirstServe, ShortestJobFirst, RoundRobin, ShortestRemainingTimeFirst")]
+    [Tooltip("FirstComeFirstServe, ShortestJobFirst, RoundRobin, Priority")]
     public int Scheduler;
     public bool preemptive = true;
     public List<PropertiesData> propertiesDatas;
@@ -28,6 +28,5 @@ public class TabData : MonoBehaviour
     public void SetPreemptive(bool _preemptive)
     {
         preemptive = _preemptive;
-        print(_preemptive);
     }
 }
