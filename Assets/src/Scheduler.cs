@@ -81,7 +81,7 @@ public class Scheduler : MonoBehaviour
     public void StepScheduler()
     {
         SchedulerPause = true;
-        SchedulerTime = Mathf.Ceil(SchedulerTime);
+        SchedulerTime = Mathf.Floor(SchedulerTime);
         SchedulerDeltaTime = 1.0f;
     }
     public void makeSummary(PropertiesData CurrentlyProcessing)
