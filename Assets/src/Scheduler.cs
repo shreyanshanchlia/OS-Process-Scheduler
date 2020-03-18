@@ -45,6 +45,10 @@ public class Scheduler : MonoBehaviour
                 roundRobinScheduler.run();
             }
         }
+        if (tabData.Scheduler == 3)
+        {
+            priorityScheduler.run();
+        }
     }
     public void makeSummary(PropertiesData CurrentlyProcessing)
     {
