@@ -2132,6 +2132,7 @@ MonoBehaviour:
   ArrivalTime: 0
   BurstTime: 0
   Priority: 0
+  remainingBurstTime: 0
 --- !u!114 &6438651960642319641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,6 +2161,8 @@ MonoBehaviour:
   priority: 0
   gameObjectsToEnable:
   - {fileID: 5453334567714179511}
+  sizeFitter: {fileID: 5453334566682322754}
+  sizeFitterParent: {fileID: 5453334566682322754}
 --- !u!1 &5453334567032757164
 GameObject:
   m_ObjectHideFlags: 0
@@ -3157,6 +3160,28 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5453334566682322755}
         m_MethodName: ShowHideProperties
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1682169724}
+        m_MethodName: FitSize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5453334566682322754}
+        m_MethodName: FitSize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

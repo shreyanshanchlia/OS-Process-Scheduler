@@ -9,6 +9,7 @@ public class Scheduler : MonoBehaviour
     public SJFScheduler sjfScheduler;
     public SJFPreemptiveScheduler sjfPreemptiveScheduler;
     public RoundRobinScheduler roundRobinScheduler;
+    public PriorityScheduler priorityScheduler;
     [HideInInspector] public float SchedulerTime; 
     [HideInInspector] public bool running = false;
     [HideInInspector] public List<PropertiesData> ProcessList;
