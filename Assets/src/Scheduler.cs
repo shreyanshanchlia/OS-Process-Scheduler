@@ -10,6 +10,7 @@ public class Scheduler : MonoBehaviour
     public SJFPreemptiveScheduler sjfPreemptiveScheduler;
     public RoundRobinScheduler roundRobinScheduler;
     public PriorityScheduler priorityScheduler;
+    public PrioritySchedulerPreemptive priorityPreemptiveScheduler;
     [HideInInspector] public float SchedulerTime; 
     [HideInInspector] public bool running = false;
     [HideInInspector] public List<PropertiesData> ProcessList;
@@ -47,7 +48,14 @@ public class Scheduler : MonoBehaviour
         }
         if (tabData.Scheduler == 3)
         {
-            priorityScheduler.run();
+            if (tabData.preemptive)
+            {
+                priorityPreemptiveScheduler.run();
+            }
+            else
+            {
+                priorityScheduler.run();
+            }
         }
     }
     public void makeSummary(PropertiesData CurrentlyProcessing)
