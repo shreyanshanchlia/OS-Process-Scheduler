@@ -54,7 +54,7 @@ public class RoundRobinScheduler : MonoBehaviour
             }
             else
             {
-                ProcessorFreeAt -= Time.deltaTime * Time.timeScale;
+                ProcessorFreeAt -= scheduler.SchedulerDeltaTime;
                 if (ProcessorFreeAt <= 0)
                 {
                     if (CurrentlyProcessing.remainingBurstTime > 0)

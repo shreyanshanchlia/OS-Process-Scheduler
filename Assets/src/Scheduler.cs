@@ -12,6 +12,7 @@ public class Scheduler : MonoBehaviour
     public PriorityScheduler priorityScheduler;
     public PriorityPreemptiveScheduler priorityPreemptiveScheduler;
     [HideInInspector] public float SchedulerTime; 
+    [HideInInspector] public float SchedulerDeltaTime;
     [HideInInspector] public bool running = false;
     [HideInInspector] public List<PropertiesData> ProcessList;
     public TextMeshProUGUI schedulerTimeText;
@@ -73,6 +74,12 @@ public class Scheduler : MonoBehaviour
     public void PauseScheduler()
     {
         SchedulerPause = true;
+        SchedulerDeltaTime = 0.0f;
+    }
+    public void StepScheduler()
+    {
+        SchedulerPause = true;
+        SchedulerDeltaTime = 1.0f;
     }
     public void makeSummary(PropertiesData CurrentlyProcessing)
     {
@@ -91,7 +98,8 @@ public class Scheduler : MonoBehaviour
         {
             if (!SchedulerPause)
             {
-                SchedulerTime += Time.deltaTime * Time.timeScale;
+                SchedulerDeltaTime = Time.deltaTime * Time.timeScale;
+                SchedulerTime += SchedulerDeltaTime;
                 schedulerTimeText.text = SchedulerTime.ToString("f4");
             }
         }
