@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class PrioritySchedulerPreemptive : MonoBehaviour
+public class PriorityPreemptiveScheduler : MonoBehaviour
 {
     public Scheduler scheduler;
     public ChartMaker chartMaker;
