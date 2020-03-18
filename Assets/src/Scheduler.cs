@@ -8,6 +8,7 @@ public class Scheduler : MonoBehaviour
     public FCFSScheduler fcfsScheduler;
     public SJFScheduler sjfScheduler;
     public SJFPreemptiveScheduler sjfPreemptiveScheduler;
+    public RoundRobinScheduler roundRobinScheduler;
     [HideInInspector] public float SchedulerTime; 
     [HideInInspector] public bool running = false;
     [HideInInspector] public List<PropertiesData> ProcessList;
@@ -30,6 +31,17 @@ public class Scheduler : MonoBehaviour
             else
             {
                 sjfScheduler.run();
+            }
+        }
+        if (tabData.Scheduler == 2)
+        {
+            if (tabData.preemptive)
+            {
+                roundRobinScheduler.run();
+            }
+            else
+            {
+                roundRobinScheduler.run();
             }
         }
     }
