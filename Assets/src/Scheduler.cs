@@ -64,6 +64,12 @@ public class Scheduler : MonoBehaviour
             }
         }
     }
+    public void SchedulerReset()
+    {
+        SchedulerTime = 0.0f;
+        schedulerTimeText.text = SchedulerTime.ToString("f4");
+
+    }
     public void PauseScheduler()
     {
         SchedulerPause = true;
