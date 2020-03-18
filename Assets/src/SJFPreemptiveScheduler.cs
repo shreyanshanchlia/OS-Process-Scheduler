@@ -53,6 +53,7 @@ public class SJFPreemptiveScheduler : MonoBehaviour
                     arrived.Remove(CurrentlyProcessing);
                     processing = true;
                     ProcessorFreeAt = Mathf.Min(CurrentlyProcessing.BurstTime, 1);
+                    CurrentlyProcessing.remainingBurstTime -= ProcessorFreeAt;
                     ProcessStartedAt = scheduler.SchedulerTime;
                     chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
                 }
@@ -68,7 +69,6 @@ public class SJFPreemptiveScheduler : MonoBehaviour
                     }
                     else
                     {
-                        CurrentlyProcessing.remainingBurstTime -= (scheduler.SchedulerTime - ProcessStartedAt);  //1
                         arrived.Add(CurrentlyProcessing);
                     }
                     processing = false;
