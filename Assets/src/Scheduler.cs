@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class Scheduler : MonoBehaviour
 {
     [SerializeField] private TabData tabData;
@@ -80,8 +82,14 @@ public class Scheduler : MonoBehaviour
     }
     public void StepScheduler()
     {
+        StartCoroutine(StepSchedulerEnumerator());
+    }
+    IEnumerator StepSchedulerEnumerator()
+    {
         SchedulerPause = true;
-        SchedulerTime = Mathf.Floor(SchedulerTime);
+        SchedulerDeltaTime = Mathf.Ceil(SchedulerTime) - SchedulerTime;
+        print(SchedulerDeltaTime);
+        yield return null;
         SchedulerDeltaTime = 1.0f;
     }
     public void makeSummary(PropertiesData CurrentlyProcessing)
