@@ -19,7 +19,8 @@ public class Scheduler : MonoBehaviour
     private bool SchedulerPause = false;
     public void RunScheduler()     
     {
-        if(running && SchedulerPause)
+        SchedulerDeltaTime = Time.deltaTime * Time.timeScale;
+        if (running && SchedulerPause)
         {
             SchedulerPause = false;
             return;
@@ -69,7 +70,8 @@ public class Scheduler : MonoBehaviour
     {
         SchedulerTime = 0.0f;
         schedulerTimeText.text = SchedulerTime.ToString("f4");
-
+        running = false;
+        SchedulerPause = false;
     }
     public void PauseScheduler()
     {
@@ -79,6 +81,7 @@ public class Scheduler : MonoBehaviour
     public void StepScheduler()
     {
         SchedulerPause = true;
+        SchedulerTime = Mathf.Ceil(SchedulerTime);
         SchedulerDeltaTime = 1.0f;
     }
     public void makeSummary(PropertiesData CurrentlyProcessing)
@@ -99,9 +102,9 @@ public class Scheduler : MonoBehaviour
             if (!SchedulerPause)
             {
                 SchedulerDeltaTime = Time.deltaTime * Time.timeScale;
-                SchedulerTime += SchedulerDeltaTime;
-                schedulerTimeText.text = SchedulerTime.ToString("f4");
             }
+            SchedulerTime += SchedulerDeltaTime;
+            schedulerTimeText.text = SchedulerTime.ToString("f4");
         }
     }
 }

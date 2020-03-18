@@ -5807,7 +5807,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 969577460}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999756
+  m_Size: 0.9999943
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7022,7 +7022,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 980004184}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 96677240}
+        m_MethodName: StepScheduler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &980004184
 MonoBehaviour:
   m_ObjectHideFlags: 0
