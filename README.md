@@ -12,6 +12,10 @@ Visualize various scheduling operations for operating systems at realtime.
 * Priority (Preemptive)
 
 ###### For development it is recommended to use [Unity 2019.3.1f1](https://unity3d.com/unity/whats-new/2019.3.1) download it [here.](https://unity3d.com/get-unity/download/archive)
+### Dependencies: 
+* Runtime GUI Table [link](https://assetstore.unity.com/packages/tools/gui/ui-table-137867)
+* TextMesh Pro
+
 ## How to use?
 ### Project launcher
 * Create new project or load one.
