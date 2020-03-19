@@ -80,6 +80,12 @@ public class Scheduler : MonoBehaviour
             Destroy(element.gameObject);
         }
         summaryManager.summaryDatas = new List<SummaryData>();
+        fcfsScheduler.reset();
+        sjfScheduler.reset();
+        sjfPreemptiveScheduler.reset();
+        roundRobinScheduler.reset();
+        priorityScheduler.reset();
+        priorityPreemptiveScheduler.reset();
     }
     public void PauseScheduler()
     {
