@@ -14,13 +14,21 @@ public class FCFSScheduler : MonoBehaviour
     private float ProcessorFreeAt = 0.0f;
     public void run()
     {
-        waiting = new List<PropertiesData>();
-        arrived = new Queue<PropertiesData>();
+        reset();
         foreach (var _process in scheduler.ProcessList)
         {
             waiting.Add(_process);
         }
         running = true;
+    }
+    public void reset()
+    {
+        waiting = new List<PropertiesData>();
+        arrived = new Queue<PropertiesData>();
+        CurrentlyProcessing = null;
+        ProcessorFreeAt = 0.0f;
+        processing = false;
+        running = false;
     }
     void Update()
     {

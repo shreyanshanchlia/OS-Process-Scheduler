@@ -79,6 +79,7 @@ public class Scheduler : MonoBehaviour
         {
             Destroy(element.gameObject);
         }
+        summaryManager.summaryDatas = new List<SummaryData>();
     }
     public void PauseScheduler()
     {
@@ -114,7 +115,7 @@ public class Scheduler : MonoBehaviour
         {
             if (!SchedulerPause)
             {
-                SchedulerDeltaTime = Time.deltaTime * Time.timeScale;
+                SchedulerDeltaTime = Time.deltaTime;
             }
             SchedulerTime += SchedulerDeltaTime;
             schedulerTimeText.text = SchedulerTime.ToString("f4");

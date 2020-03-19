@@ -14,13 +14,22 @@ public class SJFPreemptiveScheduler : MonoBehaviour
     private float ProcessStartedAt = 0.0f;
     public void run()
     {
-        waiting = new List<PropertiesData>();
-        arrived = new List<PropertiesData>();
+        reset();
         foreach (var _process in scheduler.ProcessList)
         {
             waiting.Add(_process);
         }
         running = true;
+    }
+    public void reset()
+    {
+        waiting = new List<PropertiesData>();
+        arrived = new List<PropertiesData>();
+        CurrentlyProcessing = null;
+        ProcessorFreeAt = 0.0f;
+        ProcessStartedAt = 0.0f;
+        processing = false;
+        running = false;
     }
     void Update()
     {

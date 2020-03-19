@@ -1961,9 +1961,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7130417487471640048}
+  - component: {fileID: 7130417487471640063}
   - component: {fileID: 7130417487471640062}
   - component: {fileID: 7130417487471640049}
-  - component: {fileID: 7130417487471640063}
   - component: {fileID: 7130417487471640060}
   - component: {fileID: 7130417487471640061}
   - component: {fileID: 7130417487471640058}
@@ -1990,6 +1990,21 @@ Transform:
   m_Father: {fileID: 7130417489010712619}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7130417487471640063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130417487471640051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262b5d2e167925743a665003b761349d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabObject: {fileID: 3153579600776255777, guid: d4674ed2e6cea6646a8f47064911e68e,
+    type: 3}
+  ganttChartHolder: {fileID: 7130417487457413343}
 --- !u!114 &7130417487471640062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,21 +2045,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scheduler: {fileID: 7130417487471640062}
   chartMaker: {fileID: 7130417487471640063}
---- !u!114 &7130417487471640063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7130417487471640051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262b5d2e167925743a665003b761349d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabObject: {fileID: 3153579600776255777, guid: d4674ed2e6cea6646a8f47064911e68e,
-    type: 3}
-  ganttChartHolder: {fileID: 7130417487457413343}
 --- !u!114 &7130417487471640060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4427,7 +4427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 663.175, y: 0}
+  m_AnchoredPosition: {x: 663.17505, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7130417487939516612
