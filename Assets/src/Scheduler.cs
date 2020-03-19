@@ -110,8 +110,8 @@ public class Scheduler : MonoBehaviour
         summaryData.ProcessName = CurrentlyProcessing.ProcessName;
         summaryData.ArrivalTime = CurrentlyProcessing.ArrivalTime;
         summaryData.BurstTime = CurrentlyProcessing.BurstTime;
-        summaryData.CompilationTime = SchedulerTime;
-        summaryData.TurnAroundTime = summaryData.CompilationTime - summaryData.ArrivalTime;
+        summaryData.CompletionTime = SchedulerTime;
+        summaryData.TurnAroundTime = summaryData.CompletionTime - summaryData.ArrivalTime;
         summaryData.WaitingTime = summaryData.TurnAroundTime - summaryData.BurstTime;
         summaryManager.summaryDatas.Add(summaryData);
     }
