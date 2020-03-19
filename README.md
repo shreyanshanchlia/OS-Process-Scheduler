@@ -16,7 +16,7 @@ Visualize various scheduling operations for operating systems at realtime.
 ![OS-Process-Scheduler](/docs/images/os_launcher_ss.jpg "Project Launcher")
 ### Schedulers
 ![OS-Process-Scheduler](/docs/images/os_main_ss.jpg "Running")
-Many schedulers can be added, removed or renamed.
+* Upto six schedulers can be added, removed or renamed.
 ### Scheduler Tab
 Processes can be added at any time. 
 * "R" button will randomize the values that each process has. 
