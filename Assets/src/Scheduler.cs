@@ -13,6 +13,7 @@ public class Scheduler : MonoBehaviour
     public RoundRobinScheduler roundRobinScheduler;
     public PriorityScheduler priorityScheduler;
     public PriorityPreemptiveScheduler priorityPreemptiveScheduler;
+    public GameObject ClearAllOnRefresh;
     [HideInInspector] public float SchedulerTime; 
     [HideInInspector] public float SchedulerDeltaTime;
     [HideInInspector] public bool running = false;
@@ -74,6 +75,10 @@ public class Scheduler : MonoBehaviour
         schedulerTimeText.text = SchedulerTime.ToString("f4");
         running = false;
         SchedulerPause = false;
+        foreach (Transform element in ClearAllOnRefresh.transform)
+        {
+            Destroy(element.gameObject);
+        }
     }
     public void PauseScheduler()
     {
