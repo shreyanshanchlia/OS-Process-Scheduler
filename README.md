@@ -1,4 +1,4 @@
-# OS-Process-Scheduler
+# Operating System Process Scheduler
 Visualize various scheduling operations for operating systems at realtime. 
 ### Available Schedulers
 * First Come First Serve
@@ -25,3 +25,4 @@ Processes can be added at any time.
 * Scheduler type can be changed from dropdown.
 * Realtime Speed can be adjusted on the top control bar. Below which a simple gantt chart will be available. 
 * A summary of the processes will be shown right below.
+###### Note: Currently the scheduler summary and gantt chart contains context switching time.
