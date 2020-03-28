@@ -12,6 +12,7 @@ public class FCFSScheduler : MonoBehaviour
     bool processing = false;
     PropertiesData CurrentlyProcessing;
     private float ProcessorFreeAt = 0.0f;
+    float contextSwitchTime;
     public void run()
     {
         reset();

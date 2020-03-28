@@ -22,7 +22,7 @@ public class Scheduler : MonoBehaviour
     private bool SchedulerPause = false;
     public void RunScheduler()     
     {
-        SchedulerDeltaTime = Time.deltaTime * Time.timeScale;
+        SchedulerDeltaTime = 0.0f;
         if (running && SchedulerPause)
         {
             SchedulerPause = false;
