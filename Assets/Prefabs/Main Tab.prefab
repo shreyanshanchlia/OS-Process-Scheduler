@@ -57,7 +57,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 714.73004, y: 0}
+  m_AnchoredPosition: {x: 714.7301, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6661552324736240851
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 188.02002
+  m_PreferredWidth: 188.02
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 188.02002
+  m_PreferredWidth: 188.02
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 4735578086697818155}
   - component: {fileID: 2784779020589539574}
   m_Layer: 0
-  m_Name: Column_CompilationTime
+  m_Name: Column_CompletionTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 909.9501, y: 0}
+  m_AnchoredPosition: {x: 909.9502, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3190181718146299647
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 188.02002
+  m_PreferredWidth: 188.02
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 188.02002
+  m_PreferredWidth: 188.02
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 214.88002
+  m_PreferredWidth: 214.87999
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -7260,7 +7260,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7130417488507042547}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 19
+  m_MaxValue: 18
   m_WholeNumbers: 1
   m_Value: 10
   m_OnValueChanged:
@@ -9795,7 +9795,7 @@ MonoBehaviour:
     cellStyle: {fileID: 0}
     table: {fileID: 7130417489061145150}
   - infoType: 0
-    fieldName: CompilationTime
+    fieldName: CompletionTime
     width: 0.14
     autoWidth: 1
     useRelativeWidth: 1
@@ -9804,7 +9804,7 @@ MonoBehaviour:
     isSortable: 0
     expandableHeight: 0
     autoColumnTitle: 1
-    columnTitle: Compilation Time
+    columnTitle: Completion Time
     useColumnTitleImage: 0
     columnTitleImage: {fileID: 0}
     cellStyle: {fileID: 0}
@@ -9924,7 +9924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 519.51, y: 0}
+  m_AnchoredPosition: {x: 519.5101, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8007604642537494878
@@ -9999,7 +9999,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 188.02002
+  m_PreferredWidth: 188.02
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -10041,7 +10041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1300.3901, y: 0}
+  m_AnchoredPosition: {x: 1300.3903, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5403429296228566335
@@ -10116,7 +10116,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 188.02002
+  m_PreferredWidth: 188.02
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -10629,7 +10629,7 @@ PrefabInstance:
     - target: {fileID: 114415805576436538, guid: 2febf59f5fcbf441c95520c9942ef88f,
         type: 3}
       propertyPath: m_Text
-      value: Compilation Time
+      value: Completion Time
       objectReference: {fileID: 0}
     - target: {fileID: 114468435212155928, guid: 2febf59f5fcbf441c95520c9942ef88f,
         type: 3}

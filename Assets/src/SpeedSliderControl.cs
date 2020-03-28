@@ -21,7 +21,7 @@ public class SpeedSliderControl : MonoBehaviour
         }
         else
         {
-            speed = value - 9;
+            speed = ((value - 9) / 2.0f) + 0.5f;
             speedToggle.isOn = true;
         }
         RefereshSpeed();
