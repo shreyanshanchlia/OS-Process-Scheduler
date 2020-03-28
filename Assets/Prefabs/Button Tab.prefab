@@ -145,6 +145,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LinkedTab: {fileID: 0}
+  Tab_Image: {fileID: 2058257715116775368}
+  DarkTab: {fileID: 21300000, guid: d00475e1c93c0468a96b7dd4d72003e0, type: 3}
+  HighlightedTab: {fileID: 21300000, guid: 93c63e67306814d6486fd7bee93f4426, type: 3}
+  closeButton: {fileID: 2058257715922000032}
 --- !u!1 &2058257715387876783
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,7 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25882354, g: 0.25882354, b: 0.25882354, a: 1}
+  m_Color: {r: 0.25882354, g: 0.25882354, b: 0.25882354, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -485,7 +489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2058257715922000033
 RectTransform:
   m_ObjectHideFlags: 0

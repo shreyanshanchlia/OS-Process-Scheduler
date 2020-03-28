@@ -394,6 +394,18 @@ MonoBehaviour:
   light_color:
     serializedVersion: 2
     rgba: 4292861919
+--- !u!114 &338854289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1628051043, guid: effdb560ef758da4192e3a0b3baf5c11,
+    type: 3}
+  m_PrefabInstance: {fileID: 2058257716709949868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f27114734ead3f4a8ce9dd210574f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &341475014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,6 +1827,8 @@ MonoBehaviour:
   ButtonTabPrefab: {fileID: 2058257715116775373, guid: effdb560ef758da4192e3a0b3baf5c11,
     type: 3}
   ButtonTabHolder: {fileID: 216120305}
+  buttonTabs:
+  - {fileID: 338854289}
 --- !u!1001 &2058257716709949868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1978,7 +1992,7 @@ PrefabInstance:
     - target: {fileID: 1909864197134296213, guid: c239c61fe80636142ab0de525a81605f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 115.84
+      value: 115.83999
       objectReference: {fileID: 0}
     - target: {fileID: 1909864197134296213, guid: c239c61fe80636142ab0de525a81605f,
         type: 3}
