@@ -74,7 +74,8 @@ public class SJFPreemptiveScheduler : MonoBehaviour
                 {
                     if (CurrentlyProcessing.remainingBurstTime <= 0)
                     {
-                        scheduler.makeSummary(CurrentlyProcessing);
+                        float SpeedAdjustment = -ProcessorFreeAt;
+                        scheduler.makeSummary(CurrentlyProcessing, SpeedAdjustment);
                     }
                     else
                     {

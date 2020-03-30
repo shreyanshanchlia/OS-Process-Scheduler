@@ -68,7 +68,8 @@ public class SJFScheduler : MonoBehaviour
                 ProcessorFreeAt -= Time.deltaTime * Time.timeScale;
                 if (ProcessorFreeAt <= 0)
                 {
-                    scheduler.makeSummary(CurrentlyProcessing);
+                    float SpeedAdjustment = -ProcessorFreeAt;
+                    scheduler.makeSummary(CurrentlyProcessing, SpeedAdjustment);
                     processing = false;
                     if (waiting.Count == 0 && arrived.Count == 0)
                     {
