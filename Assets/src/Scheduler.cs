@@ -106,7 +106,6 @@ public class Scheduler : MonoBehaviour
     }
     public void makeSummary(PropertiesData CurrentlyProcessing, float SpeedAdjustment = 0.0f)
     {
-        print(SpeedAdjustment);
         SummaryData summaryData = new SummaryData();
         summaryData.ProcessName = CurrentlyProcessing.ProcessName;
         summaryData.ArrivalTime = CurrentlyProcessing.ArrivalTime;
