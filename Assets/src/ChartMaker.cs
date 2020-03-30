@@ -8,7 +8,7 @@ public class ChartMaker : MonoBehaviour
     public void GenerateChartElement(string ProcessName, float timestamp)
     {
         GameObject @object = Instantiate(prefabObject, ganttChartHolder.transform);
-        @object.GetComponent<ChartElement>().timeStamp.text = timestamp.ToString();
+        @object.GetComponent<ChartElement>().timeStamp.text = timestamp.ToString("f2");
         @object.GetComponent<ChartElement>().ProcessName.text = ProcessName;
     }
 }

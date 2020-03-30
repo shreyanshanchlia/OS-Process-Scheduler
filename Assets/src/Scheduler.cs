@@ -104,14 +104,15 @@ public class Scheduler : MonoBehaviour
         yield return null;
         SchedulerDeltaTime = 1.0f;
     }
-    public void makeSummary(PropertiesData CurrentlyProcessing)
+    public void makeSummary(PropertiesData CurrentlyProcessing, float SpeedAdjustment = 0.0f)
     {
+        print(SpeedAdjustment);
         SummaryData summaryData = new SummaryData();
         summaryData.ProcessName = CurrentlyProcessing.ProcessName;
         summaryData.ArrivalTime = CurrentlyProcessing.ArrivalTime;
         summaryData.BurstTime = CurrentlyProcessing.BurstTime;
-        summaryData.CompletionTime = SchedulerTime;
-        summaryData.TurnAroundTime = summaryData.CompletionTime - summaryData.ArrivalTime;
+        summaryData.CompletionTime = (float)System.Math.Round(SchedulerTime - SpeedAdjustment, 2);
+        summaryData.TurnAroundTime = summaryData.CompletionTime - (float)summaryData.ArrivalTime;
         summaryData.WaitingTime = summaryData.TurnAroundTime - summaryData.BurstTime;
         summaryManager.summaryDatas.Add(summaryData);
     }
