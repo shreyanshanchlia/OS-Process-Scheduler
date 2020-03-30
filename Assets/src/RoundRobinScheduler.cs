@@ -70,7 +70,8 @@ public class RoundRobinScheduler : MonoBehaviour
                     }
                     else
                     {
-                        scheduler.makeSummary(CurrentlyProcessing);
+                        float SpeedAdjustment = -ProcessorFreeAt;
+                        scheduler.makeSummary(CurrentlyProcessing, SpeedAdjustment);
                     }
                     processing = false;
                     if (Ready.Count == 0 && waiting.Count == 0)
