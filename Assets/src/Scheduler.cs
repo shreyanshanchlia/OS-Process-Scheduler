@@ -73,6 +73,7 @@ public class Scheduler : MonoBehaviour
     {
         SchedulerTime = 0.0f;
         schedulerTimeText.text = SchedulerTime.ToString("f4");
+        tabData.ResetPropertiesData();
         running = false;
         SchedulerPause = false;
         foreach (Transform element in ClearAllOnRefresh.transform)
@@ -100,7 +101,6 @@ public class Scheduler : MonoBehaviour
     {
         SchedulerPause = true;
         SchedulerDeltaTime = Mathf.Ceil(SchedulerTime) - SchedulerTime;
-        print(SchedulerDeltaTime);
         yield return null;
         SchedulerDeltaTime = 1.0f;
     }

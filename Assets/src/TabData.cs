@@ -20,6 +20,13 @@ public class TabData : MonoBehaviour
     {
         StartCoroutine(Refresh());
     }
+    public void ResetPropertiesData()
+    {
+        foreach (var propertiesData in propertiesDatas)
+        {
+            propertiesData.remainingBurstTime = propertiesData.BurstTime;
+        }
+    }
     IEnumerator Refresh()
     {
         yield return null;
