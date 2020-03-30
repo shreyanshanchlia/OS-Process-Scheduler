@@ -7,7 +7,6 @@ public class SJFScheduler : MonoBehaviour
     public ChartMaker chartMaker;
     private List<PropertiesData> arrived;
     private List<PropertiesData> waiting;
-    bool running = false;
     bool processing = false;
     PropertiesData CurrentlyProcessing;
     private float ProcessorFreeAt = 0.0f;
@@ -18,7 +17,6 @@ public class SJFScheduler : MonoBehaviour
         {
             waiting.Add(_process);
         }
-        running = true;
     }
     public void reset()
     {
@@ -27,57 +25,69 @@ public class SJFScheduler : MonoBehaviour
         CurrentlyProcessing = null;
         ProcessorFreeAt = 0.0f;
         processing = false;
-        running = false;
     }
-    void Update()
+    public void Step()
     {
-        if (running)
+        if (ProcessorFreeAt > 0)
         {
-            for (int i = 0; i < waiting.Count; i++)
+            scheduler.SchedulerTime += ProcessorFreeAt;
+            ProcessorFreeAt = 0;
+            process();
+        }
+        else
+        {
+
+        }
+    }
+    public void process()
+    {
+        for (int i = 0; i < waiting.Count; i++)
+        {
+            PropertiesData propertiesData = waiting[i];
+            if (scheduler.SchedulerTime >= propertiesData.ArrivalTime)
             {
-                PropertiesData propertiesData = waiting[i];
-                if (scheduler.SchedulerTime >= propertiesData.ArrivalTime)
-                {
-                    arrived.Add(propertiesData);
-                    waiting.Remove(propertiesData);
-                }
+                arrived.Add(propertiesData);
+                waiting.Remove(propertiesData);
             }
-            if (!processing)
+        }
+        if (!processing)
+        {
+            if (arrived.Count > 0)
             {
-                if (arrived.Count > 0)
+                float minBurst = arrived[0].BurstTime;
+                CurrentlyProcessing = arrived[0];
+                for (int i = 0; i < arrived.Count; i++)
                 {
-                    float minBurst = arrived[0].BurstTime;
-                    CurrentlyProcessing = arrived[0];
-                    for (int i = 0; i < arrived.Count; i++)
+                    PropertiesData processes = arrived[i];
+                    if (processes.BurstTime < minBurst)
                     {
-                        PropertiesData processes = arrived[i];
-                        if (processes.BurstTime < minBurst)
-                        {
-                            minBurst = arrived[i].BurstTime;
-                            CurrentlyProcessing = arrived[i];
-                        }
+                        minBurst = arrived[i].BurstTime;
+                        CurrentlyProcessing = arrived[i];
                     }
-                    arrived.Remove(CurrentlyProcessing);
-                    processing = true;
-                    ProcessorFreeAt = CurrentlyProcessing.BurstTime;
-                    chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
                 }
+                arrived.Remove(CurrentlyProcessing);
+                processing = true;
+                ProcessorFreeAt = CurrentlyProcessing.BurstTime;
+                chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
             }
-            else
+        }
+        if(processing)
+        {
+            ProcessorFreeAt -= scheduler.SchedulerDeltaTime;
+            if (ProcessorFreeAt <= 0)
             {
-                ProcessorFreeAt -= Time.deltaTime * Time.timeScale;
-                if (ProcessorFreeAt <= 0)
+                float SpeedAdjustment = -ProcessorFreeAt;
+                scheduler.makeSummary(CurrentlyProcessing, SpeedAdjustment);
+                processing = false;
+                if (waiting.Count == 0 && arrived.Count == 0)
                 {
-                    float SpeedAdjustment = -ProcessorFreeAt;
-                    scheduler.makeSummary(CurrentlyProcessing, SpeedAdjustment);
-                    processing = false;
-                    if (waiting.Count == 0 && arrived.Count == 0)
-                    {
-                        running = false;
-                        scheduler.running = false;
-                    }
+                    scheduler.running = false;
                 }
             }
         }
+    }
+    void Update()
+    {
+        process();
     }
 }

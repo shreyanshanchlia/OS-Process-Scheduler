@@ -95,15 +95,52 @@ public class Scheduler : MonoBehaviour
     }
     public void StepScheduler()
     {
-        StartCoroutine(StepSchedulerEnumerator());
+        //StartCoroutine(StepSchedulerEnumerator());
+        if (tabData.Scheduler == 0)
+        {
+            fcfsScheduler.run();
+        }
+        if (tabData.Scheduler == 1)
+        {
+            if (tabData.preemptive)
+            {
+                sjfPreemptiveScheduler.run();
+            }
+            else
+            {
+                sjfScheduler.Step();
+            }
+        }
+        if (tabData.Scheduler == 2)
+        {
+            if (tabData.preemptive)
+            {
+                roundRobinScheduler.run();
+            }
+            else
+            {
+                roundRobinScheduler.run();
+            }
+        }
+        if (tabData.Scheduler == 3)
+        {
+            if (tabData.preemptive)
+            {
+                priorityPreemptiveScheduler.run();
+            }
+            else
+            {
+                priorityScheduler.run();
+            }
+        }
     }
-    IEnumerator StepSchedulerEnumerator()
-    {
-        SchedulerPause = true;
-        SchedulerDeltaTime = Mathf.Ceil(SchedulerTime) - SchedulerTime;
-        yield return null;
-        SchedulerDeltaTime = 1.0f;
-    }
+    //IEnumerator StepSchedulerEnumerator()
+    //{
+    //    SchedulerPause = true;
+    //    SchedulerDeltaTime = Mathf.Ceil(SchedulerTime) - SchedulerTime;
+    //    yield return null;
+    //    SchedulerDeltaTime = 1.0f;
+    //}
     public void makeSummary(PropertiesData CurrentlyProcessing, float SpeedAdjustment = 0.0f)
     {
         SummaryData summaryData = new SummaryData();
