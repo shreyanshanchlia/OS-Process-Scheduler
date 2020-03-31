@@ -8,10 +8,11 @@ public class SJFScheduler : MonoBehaviour
     public ChartMaker chartMaker;
     private List<PropertiesData> arrived;
     private List<PropertiesData> waiting;
+    bool running = false;
     bool processing = false;
     PropertiesData CurrentlyProcessing;
     private float ProcessorFreeAt = 0.0f;
-    bool running = false;
+
     public void run()
     {
         reset();
@@ -77,7 +78,7 @@ public class SJFScheduler : MonoBehaviour
         }
         process();
     }
-    public void process()
+    void process()
     {
         if (running)
         {

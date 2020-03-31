@@ -98,7 +98,7 @@ public class Scheduler : MonoBehaviour
         //StartCoroutine(StepSchedulerEnumerator());
         if (tabData.Scheduler == 0)
         {
-            fcfsScheduler.run();
+            fcfsScheduler.Step();
         }
         if (tabData.Scheduler == 1)
         {

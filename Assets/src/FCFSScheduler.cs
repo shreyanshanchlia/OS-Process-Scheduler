@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,15 +12,38 @@ public class FCFSScheduler : MonoBehaviour
     bool processing = false;
     PropertiesData CurrentlyProcessing;
     private float ProcessorFreeAt = 0.0f;
-    float contextSwitchTime;
+
     public void run()
     {
         reset();
+        running = true;
+        InitializeWaitingList();
+        if (Time.timeScale == 0.0f)
+        {
+            StartCoroutine(StepCompute());
+        }
+    }
+
+    IEnumerator StepCompute()
+    {
+        while (running)
+        {
+            Step();
+            yield return null;
+        }
+    }
+
+    private void InitializeWaitingList()
+    {
         foreach (var _process in scheduler.ProcessList)
         {
             waiting.Add(_process);
         }
-        running = true;
+        waiting.Sort(delegate (PropertiesData p1, PropertiesData p2)
+            {
+                return p1.ArrivalTime.CompareTo(p2.ArrivalTime);
+            }
+        );
     }
     public void reset()
     {
@@ -31,7 +54,36 @@ public class FCFSScheduler : MonoBehaviour
         processing = false;
         running = false;
     }
-    void Update()
+    public void Step()
+    {
+        if (!running)
+        {
+            InitializeWaitingList();
+            running = true;
+        }
+        if (ProcessorFreeAt > 0)
+        {
+            scheduler.SchedulerTime += ProcessorFreeAt;
+            scheduler.SetTimerText();
+            ProcessorFreeAt = 0;
+            scheduler.SchedulerDeltaTime = 0.0f;
+        }
+        else
+        {
+            if (waiting.Count > 0)
+            {
+                float SetToTime = waiting[0].ArrivalTime;
+                foreach (var prop in waiting)
+                {
+                    SetToTime = Mathf.Min(prop.ArrivalTime, SetToTime);
+                }
+                scheduler.SchedulerTime = SetToTime;
+                scheduler.SetTimerText();
+            }
+        }
+        process();
+    }
+    void process()
     {
         if (running)
         {
@@ -54,9 +106,8 @@ public class FCFSScheduler : MonoBehaviour
                     chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
                 }
             }
-            else
+            if (processing)
             {
-                ProcessorFreeAt -= scheduler.SchedulerDeltaTime;
                 if (ProcessorFreeAt <= 0)
                 {
                     float SpeedAdjustment = -ProcessorFreeAt;
@@ -68,7 +119,12 @@ public class FCFSScheduler : MonoBehaviour
                         scheduler.running = false;
                     }
                 }
+                ProcessorFreeAt -= scheduler.SchedulerDeltaTime;
             }
         }
+    }
+    void Update()
+    {
+        process();
     }
 }
