@@ -130,7 +130,7 @@ public class Scheduler : MonoBehaviour
             }
             else
             {
-                priorityScheduler.run();
+                priorityScheduler.Step();
             }
         }
     }

@@ -12,15 +12,35 @@ public class PriorityScheduler : MonoBehaviour
     bool processing = false;
     PropertiesData CurrentlyProcessing;
     private float ProcessorFreeAt = 0.0f;
+
     public void run()
     {
         reset();
+        running = true;
+        InitializeWaitingList();
+        if (Time.timeScale == 0.0f)
+        {
+            StartCoroutine(StepCompute());
+        }
+    }
+
+    IEnumerator StepCompute()
+    {
+        while (running)
+        {
+            Step();
+            yield return null;
+        }
+    }
+
+    private void InitializeWaitingList()
+    {
         foreach (var _process in scheduler.ProcessList)
         {
             waiting.Add(_process);
         }
-        running = true;
     }
+
     public void reset()
     {
         waiting = new List<PropertiesData>();
@@ -30,7 +50,36 @@ public class PriorityScheduler : MonoBehaviour
         processing = false;
         running = false;
     }
-    void Update()
+    public void Step()
+    {
+        if (!running)
+        {
+            InitializeWaitingList();
+            running = true;
+        }
+        if (ProcessorFreeAt > 0)
+        {
+            scheduler.SchedulerTime += ProcessorFreeAt;
+            scheduler.SetTimerText();
+            ProcessorFreeAt = 0;
+            scheduler.SchedulerDeltaTime = 0.0f;
+        }
+        else
+        {
+            if (waiting.Count > 0)
+            {
+                float SetToTime = waiting[0].ArrivalTime;
+                foreach (var prop in waiting)
+                {
+                    SetToTime = Mathf.Min(prop.ArrivalTime, SetToTime);
+                }
+                scheduler.SchedulerTime = SetToTime;
+                scheduler.SetTimerText();
+            }
+        }
+        process();
+    }
+    void process()
     {
         if (running)
         {
@@ -64,13 +113,11 @@ public class PriorityScheduler : MonoBehaviour
                     chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
                 }
             }
-            else
+            if (processing)
             {
-                ProcessorFreeAt -= scheduler.SchedulerDeltaTime;
                 if (ProcessorFreeAt <= 0)
                 {
-                    float SpeedAdjustment = -ProcessorFreeAt;
-                    scheduler.makeSummary(CurrentlyProcessing, SpeedAdjustment);
+                    scheduler.makeSummary(CurrentlyProcessing);
                     processing = false;
                     if (waiting.Count == 0 && arrived.Count == 0)
                     {
@@ -78,7 +125,12 @@ public class PriorityScheduler : MonoBehaviour
                         scheduler.running = false;
                     }
                 }
+                ProcessorFreeAt -= scheduler.SchedulerDeltaTime;
             }
         }
+    }
+    void Update()
+    {
+        process();
     }
 }
