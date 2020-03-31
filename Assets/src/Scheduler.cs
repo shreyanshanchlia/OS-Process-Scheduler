@@ -72,7 +72,7 @@ public class Scheduler : MonoBehaviour
     public void SchedulerReset()
     {
         SchedulerTime = 0.0f;
-        schedulerTimeText.text = SchedulerTime.ToString("f4");
+        SetTimerText();
         tabData.ResetPropertiesData();
         running = false;
         SchedulerPause = false;
@@ -161,7 +161,11 @@ public class Scheduler : MonoBehaviour
                 SchedulerDeltaTime = Time.deltaTime;
             }
             SchedulerTime += SchedulerDeltaTime;
-            schedulerTimeText.text = SchedulerTime.ToString("f4");
+            SetTimerText();
         }
+    }
+    public void SetTimerText()
+    {
+        schedulerTimeText.text = SchedulerTime.ToString("f4");
     }
 }

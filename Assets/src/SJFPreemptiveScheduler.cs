@@ -11,9 +11,12 @@ public class SJFPreemptiveScheduler : MonoBehaviour
     PropertiesData CurrentlyProcessing;
     private float ProcessorFreeAt = 0.0f;
     private float ProcessStartedAt = 0.0f;
+    private bool running = false;
+
     public void run()
     {
         reset();
+        running = true;
         foreach (var _process in scheduler.ProcessList)
         {
             waiting.Add(_process);
@@ -27,59 +30,64 @@ public class SJFPreemptiveScheduler : MonoBehaviour
         ProcessorFreeAt = 0.0f;
         ProcessStartedAt = 0.0f;
         processing = false;
+        running = false;
     }
     void Update()
     {
-        for (int i = 0; i < waiting.Count; i++)
+        if (running)
         {
-            PropertiesData propertiesData = waiting[i];
-            if (scheduler.SchedulerTime >= propertiesData.ArrivalTime)
+            for (int i = 0; i < waiting.Count; i++)
             {
-                arrived.Add(propertiesData);
-                waiting.Remove(propertiesData);
-            }
-        }
-        if (!processing)
-        {
-            if (arrived.Count > 0)
-            {
-                float minBurst = arrived[0].BurstTime;
-                CurrentlyProcessing = arrived[0];
-                for (int i = 0; i < arrived.Count; i++)
+                PropertiesData propertiesData = waiting[i];
+                if (scheduler.SchedulerTime >= propertiesData.ArrivalTime)
                 {
-                    PropertiesData processes = arrived[i];
-                    if (processes.BurstTime < minBurst)
+                    arrived.Add(propertiesData);
+                    waiting.Remove(propertiesData);
+                }
+            }
+            if (!processing)
+            {
+                if (arrived.Count > 0)
+                {
+                    float minBurst = arrived[0].BurstTime;
+                    CurrentlyProcessing = arrived[0];
+                    for (int i = 0; i < arrived.Count; i++)
                     {
-                        minBurst = arrived[i].BurstTime;
-                        CurrentlyProcessing = arrived[i];
+                        PropertiesData processes = arrived[i];
+                        if (processes.BurstTime < minBurst)
+                        {
+                            minBurst = arrived[i].BurstTime;
+                            CurrentlyProcessing = arrived[i];
+                        }
                     }
+                    arrived.Remove(CurrentlyProcessing);
+                    processing = true;
+                    ProcessorFreeAt = Mathf.Min(CurrentlyProcessing.BurstTime, 1);
+                    CurrentlyProcessing.remainingBurstTime -= ProcessorFreeAt;
+                    ProcessStartedAt = scheduler.SchedulerTime;
+                    chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
                 }
-                arrived.Remove(CurrentlyProcessing);
-                processing = true;
-                ProcessorFreeAt = Mathf.Min(CurrentlyProcessing.BurstTime, 1);
-                CurrentlyProcessing.remainingBurstTime -= ProcessorFreeAt;
-                ProcessStartedAt = scheduler.SchedulerTime;
-                chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
             }
-        }
-        else
-        {
-            ProcessorFreeAt -= scheduler.SchedulerDeltaTime;
-            if (ProcessorFreeAt <= 0)
+            else
             {
-                if (CurrentlyProcessing.remainingBurstTime <= 0)
+                ProcessorFreeAt -= scheduler.SchedulerDeltaTime;
+                if (ProcessorFreeAt <= 0)
                 {
-                    float SpeedAdjustment = -ProcessorFreeAt;
-                    scheduler.makeSummary(CurrentlyProcessing, SpeedAdjustment);
-                }
-                else
-                {
-                    arrived.Add(CurrentlyProcessing);
-                }
-                processing = false;
-                if (waiting.Count == 0 && arrived.Count == 0)
-                {
-                    scheduler.running = false;
+                    if (CurrentlyProcessing.remainingBurstTime <= 0)
+                    {
+                        float SpeedAdjustment = -ProcessorFreeAt;
+                        scheduler.makeSummary(CurrentlyProcessing, SpeedAdjustment);
+                    }
+                    else
+                    {
+                        arrived.Add(CurrentlyProcessing);
+                    }
+                    processing = false;
+                    if (waiting.Count == 0 && arrived.Count == 0)
+                    {
+                        scheduler.running = false;
+                        running = false;
+                    }
                 }
             }
         }
