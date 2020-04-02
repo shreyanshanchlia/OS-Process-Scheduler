@@ -54,6 +54,7 @@ public class SJFPreemptiveScheduler : MonoBehaviour
     {
         if (!running)
         {
+            reset();
             InitializeWaitingList();
             running = true;
         }
