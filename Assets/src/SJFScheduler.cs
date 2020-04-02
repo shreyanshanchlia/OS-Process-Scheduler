@@ -82,9 +82,8 @@ public class SJFScheduler : MonoBehaviour
     {
         if (running)
         {
-            for (int i = 0; i < waiting.Count; i++)
+            foreach (PropertiesData propertiesData in waiting.ToArray())
             {
-                PropertiesData propertiesData = waiting[i];
                 if (scheduler.SchedulerTime >= propertiesData.ArrivalTime)
                 {
                     arrived.Add(propertiesData);
