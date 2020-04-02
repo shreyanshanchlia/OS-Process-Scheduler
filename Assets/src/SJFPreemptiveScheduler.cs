@@ -83,9 +83,8 @@ public class SJFPreemptiveScheduler : MonoBehaviour
     {
         if (running)
         {
-            for (int i = 0; i < waiting.Count; i++)
+            foreach (PropertiesData propertiesData in waiting.ToArray())
             {
-                PropertiesData propertiesData = waiting[i];
                 if (scheduler.SchedulerTime >= propertiesData.ArrivalTime)
                 {
                     arrived.Add(propertiesData);
@@ -98,13 +97,12 @@ public class SJFPreemptiveScheduler : MonoBehaviour
                 {
                     float minBurst = arrived[0].BurstTime;
                     CurrentlyProcessing = arrived[0];
-                    for (int i = 0; i < arrived.Count; i++)
+                    foreach (PropertiesData processes in arrived)
                     {
-                        PropertiesData processes = arrived[i];
                         if (processes.BurstTime < minBurst)
                         {
-                            minBurst = arrived[i].BurstTime;
-                            CurrentlyProcessing = arrived[i];
+                            minBurst = processes.BurstTime;
+                            CurrentlyProcessing = processes;
                         }
                     }
                     arrived.Remove(CurrentlyProcessing);
