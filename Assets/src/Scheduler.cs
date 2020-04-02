@@ -113,14 +113,7 @@ public class Scheduler : MonoBehaviour
         }
         if (tabData.Scheduler == 2)
         {
-            if (tabData.preemptive)
-            {
-                roundRobinScheduler.run();
-            }
-            else
-            {
-                roundRobinScheduler.run();
-            }
+            roundRobinScheduler.run();
         }
         if (tabData.Scheduler == 3)
         {
