@@ -70,7 +70,7 @@ public class SJFPreemptiveScheduler : MonoBehaviour
             if (waiting.Count > 0)
             {
                 float SetToTime = waiting[0].ArrivalTime;
-                foreach (var prop in waiting)
+                foreach (PropertiesData prop in waiting)
                 {
                     SetToTime = Mathf.Min(prop.ArrivalTime, SetToTime);
                 }

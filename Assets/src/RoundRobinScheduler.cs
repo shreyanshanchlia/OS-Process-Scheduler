@@ -17,11 +17,29 @@ public class RoundRobinScheduler : MonoBehaviour
     public void run()
     {
         reset();
+        running = true;
+        InitializeWaitingList();
+        if (Time.timeScale == 0.0f)
+        {
+            StartCoroutine(StepCompute());
+        }
+    }
+
+    IEnumerator StepCompute()
+    {
+        while (running)
+        {
+            Step();
+            yield return null;
+        }
+    }
+
+    private void InitializeWaitingList()
+    {
         foreach (var _process in scheduler.ProcessList)
         {
             waiting.Add(_process);
         }
-        running = true;
     }
     public void reset()
     {
@@ -33,7 +51,37 @@ public class RoundRobinScheduler : MonoBehaviour
         running = false;
         ProcessStartedAt = 0.0f;
     }
-    void Update()
+    public void Step()
+    {
+        if (!running)
+        {
+            reset();
+            InitializeWaitingList();
+            running = true;
+        }
+        if (ProcessorFreeAt > 0)
+        {
+            scheduler.SchedulerTime += ProcessorFreeAt;
+            scheduler.SetTimerText();
+            ProcessorFreeAt = 0;
+            scheduler.SchedulerDeltaTime = 0.0f;
+        }
+        else
+        {
+            if (waiting.Count > 0)
+            {
+                float SetToTime = waiting[0].ArrivalTime;
+                foreach (PropertiesData prop in waiting)
+                {
+                    SetToTime = Mathf.Min(prop.ArrivalTime, SetToTime);
+                }
+                scheduler.SchedulerTime = SetToTime;
+                scheduler.SetTimerText();
+            }
+        }
+        process();
+    }
+    private void process()
     {
         if (running)
         {
@@ -82,5 +130,9 @@ public class RoundRobinScheduler : MonoBehaviour
                 }
             }
         }
+    }
+    void Update()
+    {
+        process();
     }
 }

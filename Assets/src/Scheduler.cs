@@ -113,7 +113,7 @@ public class Scheduler : MonoBehaviour
         }
         if (tabData.Scheduler == 2)
         {
-            roundRobinScheduler.run();
+            roundRobinScheduler.Step();
         }
         if (tabData.Scheduler == 3)
         {
