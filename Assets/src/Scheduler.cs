@@ -104,7 +104,7 @@ public class Scheduler : MonoBehaviour
         {
             if (tabData.preemptive)
             {
-                sjfPreemptiveScheduler.run();
+                sjfPreemptiveScheduler.Step();
             }
             else
             {
@@ -149,7 +149,7 @@ public class Scheduler : MonoBehaviour
         summaryData.BurstTime = CurrentlyProcessing.BurstTime;
         summaryData.CompletionTime = (float)System.Math.Round(SchedulerTime - SpeedAdjustment, 2);
         summaryData.TurnAroundTime = summaryData.CompletionTime - (float)summaryData.ArrivalTime;
-        summaryData.WaitingTime = summaryData.TurnAroundTime - summaryData.BurstTime;
+        summaryData.WaitingTime = (float)System.Math.Round((float)(summaryData.TurnAroundTime - summaryData.BurstTime), 2);
         summaryManager.summaryDatas.Add(summaryData);
     }
     private void Update()

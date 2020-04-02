@@ -97,13 +97,12 @@ public class SJFScheduler : MonoBehaviour
                 {
                     float minBurst = arrived[0].BurstTime;
                     CurrentlyProcessing = arrived[0];
-                    for (int i = 0; i < arrived.Count; i++)
+                    foreach (PropertiesData process in arrived)
                     {
-                        PropertiesData processes = arrived[i];
-                        if (processes.BurstTime < minBurst)
+                        if (process.BurstTime < minBurst)
                         {
-                            minBurst = arrived[i].BurstTime;
-                            CurrentlyProcessing = arrived[i];
+                            minBurst = process.BurstTime;
+                            CurrentlyProcessing = process;
                         }
                     }
                     arrived.Remove(CurrentlyProcessing);
