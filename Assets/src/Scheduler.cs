@@ -126,7 +126,7 @@ public class Scheduler : MonoBehaviour
         {
             if (tabData.preemptive)
             {
-                priorityPreemptiveScheduler.run();
+                priorityPreemptiveScheduler.Step();
             }
             else
             {
