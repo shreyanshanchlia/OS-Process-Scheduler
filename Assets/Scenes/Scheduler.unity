@@ -3204,16 +3204,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7130417489061145148, guid: c239c61fe80636142ab0de525a81605f,
-        type: 3}
-      propertyPath: m_Padding.m_Left
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7130417489061145148, guid: c239c61fe80636142ab0de525a81605f,
-        type: 3}
-      propertyPath: m_Padding.m_Right
-      value: 35
-      objectReference: {fileID: 0}
     - target: {fileID: 7721394242468650879, guid: c239c61fe80636142ab0de525a81605f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
