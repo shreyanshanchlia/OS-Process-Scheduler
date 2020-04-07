@@ -12,6 +12,6 @@ public class LoadSystemInformation : MonoBehaviour
     IEnumerator LoadProcessor()
     {
         yield return new WaitForSeconds(1.0f);
-        ProcessorInfoText.text = "Using " + SystemInfo.processorType;
+        ProcessorInfoText.text = "Using " + SystemInfo.processorType + ", " + SystemInfo.processorCount + " cores.";
     }
 }

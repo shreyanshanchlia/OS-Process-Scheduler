@@ -69,7 +69,7 @@ public class PriorityScheduler : MonoBehaviour
             if (waiting.Count > 0)
             {
                 float SetToTime = waiting[0].ArrivalTime;
-                foreach (var prop in waiting)
+                foreach (var prop in waiting.ToArray())
                 {
                     SetToTime = Mathf.Min(prop.ArrivalTime, SetToTime);
                 }
@@ -83,9 +83,8 @@ public class PriorityScheduler : MonoBehaviour
     {
         if (running)
         {
-            for (int i = 0; i < waiting.Count; i++)
+            foreach (PropertiesData propertiesData in waiting.ToArray())
             {
-                PropertiesData propertiesData = waiting[i];
                 if (scheduler.SchedulerTime >= propertiesData.ArrivalTime)
                 {
                     arrived.Add(propertiesData);
