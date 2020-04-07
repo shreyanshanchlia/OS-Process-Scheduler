@@ -11,6 +11,7 @@ public class TabManager : MonoBehaviour
     {
         Destroy(LinkedTab);
         Destroy(this.gameObject);
+        FindObjectOfType<TabsManager>().reduceTabsCount();
     }
     public void OpenTab()
     {

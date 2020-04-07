@@ -1994,6 +1994,9 @@ MonoBehaviour:
   ButtonTabHolder: {fileID: 216120305}
   buttonTabs:
   - {fileID: 338854289}
+  AddTabButton: {fileID: 1246205386}
+  MaxTabs: 6
+  CurrentTabCount: 0
 --- !u!1001 &2058257716709949868
 PrefabInstance:
   m_ObjectHideFlags: 0
