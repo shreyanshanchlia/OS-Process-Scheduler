@@ -4368,8 +4368,8 @@ GameObject:
   - component: {fileID: 2134713606}
   - component: {fileID: 2134713605}
   m_Layer: 5
-  m_Name: Settings Panel
-  m_TagString: Untagged
+  m_Name: MainSettings Panel
+  m_TagString: Settings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5145,12 +5145,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7130417487971780491, guid: c239c61fe80636142ab0de525a81605f,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e322a7a418040463fb053c543d2ea9fc,
-        type: 3}
     - target: {fileID: 7130417488068019121, guid: c239c61fe80636142ab0de525a81605f,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -5216,11 +5210,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7130417488177228392, guid: c239c61fe80636142ab0de525a81605f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2134713604}
     - target: {fileID: 7130417488177228395, guid: c239c61fe80636142ab0de525a81605f,
         type: 3}
       propertyPath: m_AnchorMin.y
