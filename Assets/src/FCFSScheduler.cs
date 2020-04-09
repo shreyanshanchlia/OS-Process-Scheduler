@@ -103,7 +103,7 @@ public class FCFSScheduler : MonoBehaviour
                     CurrentlyProcessing = arrived.Dequeue();
                     processing = true;
                     ProcessorFreeAt = CurrentlyProcessing.BurstTime;
-                    chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
+                    chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime, CurrentlyProcessing.BurstTime);
                 }
             }
             if (processing)

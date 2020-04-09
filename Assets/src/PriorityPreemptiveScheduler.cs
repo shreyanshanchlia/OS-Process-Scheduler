@@ -110,7 +110,7 @@ public class PriorityPreemptiveScheduler : MonoBehaviour
                     processing = true;
                     ProcessorFreeAt = Mathf.Min(CurrentlyProcessing.BurstTime, 1);
                     CurrentlyProcessing.remainingBurstTime -= ProcessorFreeAt;
-                    chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
+                    chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime, CurrentlyProcessing.BurstTime);
                 }
             }
             else

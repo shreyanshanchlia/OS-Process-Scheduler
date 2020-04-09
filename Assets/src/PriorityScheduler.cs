@@ -109,7 +109,7 @@ public class PriorityScheduler : MonoBehaviour
                     arrived.Remove(CurrentlyProcessing);
                     processing = true;
                     ProcessorFreeAt = CurrentlyProcessing.BurstTime;
-                    chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime);
+                    chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime, CurrentlyProcessing.BurstTime);
                 }
             }
             if (processing)
