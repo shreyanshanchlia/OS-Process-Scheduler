@@ -5,5 +5,4 @@ public class GanttChartSummaryManager : MonoBehaviour
 {
     public List<GanttChartData> DetailedGanttChart;
 
-    
 }
