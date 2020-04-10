@@ -17,9 +17,9 @@ public class ChartMaker : MonoBehaviour
     {
         GanttChartData ganttChartData = new GanttChartData();
         ganttChartData.ProcessName = ProcessName;
-        Texture2D texture = new Texture2D((int)10, 1);    //replace 10 with total time.
+        Texture2D texture = new Texture2D(10, 1);    //replace 10 with total time.
         texture.filterMode = FilterMode.Point;
-        for (int x = 0; x <= (int)(startTime); x++)
+        for (int x = 0; x <= (int)startTime; x++)
         {
             texture.SetPixel(x, 0, Color.white);
         }
