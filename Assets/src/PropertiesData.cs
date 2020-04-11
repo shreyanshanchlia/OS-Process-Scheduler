@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class PropertiesData : MonoBehaviour
 {
@@ -8,7 +10,7 @@ public class PropertiesData : MonoBehaviour
     public int BurstTime = 1;
     public int Priority = 0;
     public float remainingBurstTime = 0;
-
+    public List<KeyValuePair<float, float>> ProcessingChange;
     private void Start()
     {
         ProcessId = GetInstanceID();

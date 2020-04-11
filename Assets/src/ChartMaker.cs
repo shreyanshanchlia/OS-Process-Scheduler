@@ -6,24 +6,25 @@ public class ChartMaker : MonoBehaviour
     public GameObject prefabObject;
     public GameObject ganttChartHolder;
     public GanttChartSummaryManager GanttChartManager;
-    public void GenerateChartElement(string ProcessName, float timestamp, int burstTime = 0)
+    public void GenerateChartElement(PropertiesData Process, float timestamp)
     {
         GameObject @object = Instantiate(prefabObject, ganttChartHolder.transform);
         @object.GetComponent<ChartElement>().timeStamp.text = timestamp.ToString("f2");
-        @object.GetComponent<ChartElement>().ProcessName.text = ProcessName;
-        summaryChartMaker(ProcessName, timestamp, burstTime);
+        @object.GetComponent<ChartElement>().ProcessName.text = Process.ProcessName;
+        summaryChartMaker(Process);
     }
-    public void summaryChartMaker(string ProcessName, float startTime, int BurstTime = 0)
+    public void summaryChartMaker(PropertiesData Process)
     {
         GanttChartData ganttChartData = new GanttChartData();
-        ganttChartData.ProcessName = ProcessName;
+        ganttChartData.ProcessName = Process.ProcessName;
+        float startTime = Process.ArrivalTime;
         Texture2D texture = new Texture2D(10, 1);    //replace 10 with total time.
         texture.filterMode = FilterMode.Point;
         for (int x = 0; x <= (int)startTime; x++)
         {
             texture.SetPixel(x, 0, Color.white);
         }
-        for (int x = (int)startTime; x < (int)(startTime + BurstTime); x++)
+        for (int x = (int)startTime; x < (int)(startTime + Process.remainingBurstTime); x++)
         {
             texture.SetPixel(x, 0, Color.blue);            
         }

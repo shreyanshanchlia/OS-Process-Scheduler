@@ -104,7 +104,7 @@ public class RoundRobinScheduler : MonoBehaviour
                     ProcessorFreeAt = Mathf.Min(CurrentlyProcessing.BurstTime, Tq);
                     CurrentlyProcessing.remainingBurstTime -= ProcessorFreeAt;
                     ProcessStartedAt = scheduler.SchedulerTime;
-                    chartMaker.GenerateChartElement(CurrentlyProcessing.ProcessName, scheduler.SchedulerTime, CurrentlyProcessing.BurstTime);
+                    chartMaker.GenerateChartElement(CurrentlyProcessing, scheduler.SchedulerTime);
                 }
             }
             else
