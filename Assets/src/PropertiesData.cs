@@ -2,11 +2,17 @@
 
 public class PropertiesData : MonoBehaviour
 {
+    [ReadOnly] public int ProcessId;
     public string ProcessName = "Process";
     public int ArrivalTime = 0;
     public int BurstTime = 1;
     public int Priority = 0;
     public float remainingBurstTime = 0;
+
+    private void Start()
+    {
+        ProcessId = GetInstanceID();
+    }
     public void UpdateProcessName(string _ProcessName)
     {
         ProcessName = _ProcessName;
