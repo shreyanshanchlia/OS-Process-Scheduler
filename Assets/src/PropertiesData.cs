@@ -11,6 +11,7 @@ public class PropertiesData : MonoBehaviour
     public int Priority = 0;
     public float remainingBurstTime = 0;
     public List<KeyValuePair<float, float>> ProcessingChange;
+    [HideInInspector] public GanttChartData chartData;
     private void Start()
     {
         ProcessId = GetInstanceID();
