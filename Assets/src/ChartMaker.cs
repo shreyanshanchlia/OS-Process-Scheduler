@@ -37,13 +37,21 @@ public class ChartMaker : MonoBehaviour
             @object.AddComponent<GanttChartData>();
             GanttChartData ganttChartData = @object.GetComponent<GanttChartData>();
             ganttChartData.ProcessName = Process.ProcessName;
-            Texture2D texture = new Texture2D((int)(timestamp+Process.BurstTime), 1);
+            Texture2D texture;
+            if (!tabData.GetPreemptive())
+            {
+                texture = new Texture2D((int)(timestamp + Process.BurstTime), 1);
+            }
+            else
+            {
+                texture = new Texture2D((int)timestamp + 1, 1);
+            }
             texture.filterMode = FilterMode.Point;
             for (int x = 0; x < (int)timestamp; x++)
             {
                 texture.SetPixel(x, 0, Color.clear);
             }
-            if (!tabData.preemptive)
+            if (!tabData.GetPreemptive())
             {
                 for (int x = (int)(timestamp); x < (int)(timestamp + Process.remainingBurstTime); x++)
                 {
@@ -66,12 +74,14 @@ public class ChartMaker : MonoBehaviour
             //retrieve texture resize and repeat
             Texture2D texture = Process.chartData.texture;
             int textureWidth = texture.width;
+            Color32[] textureColorsBackup = texture.GetPixels32(0);
+            texture.Resize((int)(timestamp + 1), 1);
+            texture.Apply();
             for (int x = textureWidth; x < (int)timestamp; x++)
             {
                 texture.SetPixel(x, 0, Color.clear);
             }
-            Color32[] textureColorsBackup = texture.GetPixels32();
-            texture.Resize((int)(timestamp + 1), 1);
+            texture.Apply();
             for (int i = 0; i < textureColorsBackup.Length; i++)
             {
                 texture.SetPixel(i, 0, textureColorsBackup[i]);
@@ -80,6 +90,7 @@ public class ChartMaker : MonoBehaviour
             texture.SetPixel((int)timestamp, 0, Color.blue);
             texture.Apply();
             Rect rec = new Rect(0, 0, texture.width, 1);
+            Process.chartData.texture = texture;
             Process.chartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.02f);
         }
     }

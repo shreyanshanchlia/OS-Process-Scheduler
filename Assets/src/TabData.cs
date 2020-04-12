@@ -36,4 +36,16 @@ public class TabData : MonoBehaviour
     {
         preemptive = _preemptive;
     }
+    public bool GetPreemptive()
+    {
+        if(Scheduler == 0)
+        {
+            return false;
+        }
+        if(Scheduler == 2)
+        {
+            return true;
+        }
+        return preemptive;
+    }
 }
