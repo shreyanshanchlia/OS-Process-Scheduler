@@ -12,6 +12,11 @@ public class ToggleSummaries : MonoBehaviour
     public TextMeshProUGUI SummaryButtonName;
     private int currentSummary = 0;
 
+    private void Start()
+    {
+        currentSummary = -1;
+        Toggle();
+    }
     public void Toggle()
     {
         for (int i = 0; i < Summaries.Length; i++)

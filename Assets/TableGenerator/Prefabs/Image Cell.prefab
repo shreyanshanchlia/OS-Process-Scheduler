@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 222535622548150196}
   - component: {fileID: 114746119106633876}
   - component: {fileID: 114157484555721872}
-  - component: {fileID: -6030793159714986174}
+  - component: {fileID: 3327520366739803885}
   m_Layer: 5
   m_Name: Image Cell
   m_TagString: Untagged
@@ -35,7 +35,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -4}
   m_Pivot: {x: 0, y: 0.5}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expandableElement: {fileID: 224797624862518622}
   image: {fileID: 114746119106633876}
---- !u!114 &-6030793159714986174
+--- !u!114 &3327520366739803885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
