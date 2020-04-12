@@ -2495,6 +2495,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761510465}
   m_CullTransparentMesh: 0
+--- !u!114 &802027381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7130417487385287925, guid: c239c61fe80636142ab0de525a81605f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7130417487542866054}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d440022adde003040bdab9e431f17145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &833952663
 GameObject:
   m_ObjectHideFlags: 0
@@ -4918,7 +4930,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 77426845}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99986994
+  m_Size: 0.9976418
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5313,7 +5325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00030517578, y: 0}
+  m_AnchoredPosition: {x: 0.07312012, y: 0}
   m_SizeDelta: {x: -13.175986, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1939338046
@@ -6825,6 +6837,11 @@ PrefabInstance:
       propertyPath: GanttChartManager
       value: 
       objectReference: {fileID: 1244959749}
+    - target: {fileID: 7130417487471640063, guid: c239c61fe80636142ab0de525a81605f,
+        type: 3}
+      propertyPath: tabData
+      value: 
+      objectReference: {fileID: 802027381}
     - target: {fileID: 7130417487473420013, guid: c239c61fe80636142ab0de525a81605f,
         type: 3}
       propertyPath: m_AnchorMin.y

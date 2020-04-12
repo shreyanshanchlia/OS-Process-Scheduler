@@ -9,7 +9,7 @@ public class ChartMaker : MonoBehaviour
     public GameObject ganttChartHolder;
     public GanttChartSummaryManager GanttChartManager;
     private List<PropertiesData> summaryAdded;
-    static int count = 0;
+    public TabData tabData;
     private void Start()
     {
         RefreshSummaryList();
@@ -43,9 +43,16 @@ public class ChartMaker : MonoBehaviour
             {
                 texture.SetPixel(x, 0, Color.clear);
             }
-            for (int x = (int)(timestamp); x < (int)(timestamp + Process.remainingBurstTime); x++)
+            if (!tabData.preemptive)
             {
-                texture.SetPixel(x, 0, Color.blue);
+                for (int x = (int)(timestamp); x < (int)(timestamp + Process.remainingBurstTime); x++)
+                {
+                    texture.SetPixel(x, 0, Color.blue);
+                }
+            }
+            else
+            {
+                texture.SetPixel((int)timestamp, 0, Color.blue);
             }
             texture.Apply();
             ganttChartData.texture = texture;
@@ -53,19 +60,25 @@ public class ChartMaker : MonoBehaviour
             ganttChartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.02f);
             GanttChartManager.DetailedGanttChart.Add(ganttChartData);
             Process.chartData = ganttChartData;
-            count++;
-            print(count);
         }
         else
         {
             //retrieve texture resize and repeat
-            Texture2D texture = new Texture2D((int)(timestamp + Process.BurstTime), 1);
-            texture.filterMode = FilterMode.Point;
-            Graphics.CopyTexture(Process.chartData.texture, 0, 0, 0, 0, Process.chartData.texture.width, 1, texture, 0, 0, 0, 0);
+            Texture2D texture = Process.chartData.texture;
+            int textureWidth = texture.width;
+            for (int x = textureWidth; x < (int)timestamp; x++)
+            {
+                texture.SetPixel(x, 0, Color.clear);
+            }
+            Color32[] textureColorsBackup = texture.GetPixels32();
+            texture.Resize((int)(timestamp + 1), 1);
+            for (int i = 0; i < textureColorsBackup.Length; i++)
+            {
+                texture.SetPixel(i, 0, textureColorsBackup[i]);
+            }
             texture.Apply();
-            texture.SetPixel((int)(timestamp), 0, Color.blue);
+            texture.SetPixel((int)timestamp, 0, Color.blue);
             texture.Apply();
-            Process.chartData.texture = texture;
             Rect rec = new Rect(0, 0, texture.width, 1);
             Process.chartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.02f);
         }
