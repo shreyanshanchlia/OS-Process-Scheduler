@@ -65,6 +65,7 @@ public class ChartMaker : MonoBehaviour
             texture.Apply();
             ganttChartData.texture = texture;
             Rect rec = new Rect(0, 0, texture.width, 1);
+            //float scalingFactor = 2.0f / Mathf.Max((int)Mathf.Log10((int)(timestamp + Process.remainingBurstTime)), 3);
             ganttChartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.02f);
             GanttChartManager.DetailedGanttChart.Add(ganttChartData);
             Process.chartData = ganttChartData;
@@ -91,6 +92,7 @@ public class ChartMaker : MonoBehaviour
             texture.Apply();
             Rect rec = new Rect(0, 0, texture.width, 1);
             Process.chartData.texture = texture;
+            //float scalingFactor = 2.0f / Mathf.Max((int)Mathf.Log10((int)(timestamp + Process.remainingBurstTime)), 3);
             Process.chartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.02f);
         }
     }
