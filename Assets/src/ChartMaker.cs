@@ -9,7 +9,7 @@ public class ChartMaker : MonoBehaviour
     public GameObject ganttChartHolder;
     public GanttChartSummaryManager GanttChartManager;
     private List<PropertiesData> summaryAdded;
-
+    static int count = 0;
     private void Start()
     {
         RefreshSummaryList();
@@ -32,7 +32,10 @@ public class ChartMaker : MonoBehaviour
         if (Process.chartData == null)
         {
             summaryAdded.Add(Process);
-            GanttChartData ganttChartData = new GanttChartData();
+            GameObject @object = new GameObject("GanttChartDataHolder");
+            @object.transform.parent = this.transform;
+            @object.AddComponent<GanttChartData>();
+            GanttChartData ganttChartData = @object.GetComponent<GanttChartData>();
             ganttChartData.ProcessName = Process.ProcessName;
             Texture2D texture = new Texture2D((int)(timestamp+Process.BurstTime), 1);
             texture.filterMode = FilterMode.Point;
@@ -50,10 +53,21 @@ public class ChartMaker : MonoBehaviour
             ganttChartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.02f);
             GanttChartManager.DetailedGanttChart.Add(ganttChartData);
             Process.chartData = ganttChartData;
+            count++;
+            print(count);
         }
         else
         {
             //retrieve texture resize and repeat
+            Texture2D texture = new Texture2D((int)(timestamp + Process.BurstTime), 1);
+            texture.filterMode = FilterMode.Point;
+            Graphics.CopyTexture(Process.chartData.texture, 0, 0, 0, 0, Process.chartData.texture.width, 1, texture, 0, 0, 0, 0);
+            texture.Apply();
+            texture.SetPixel((int)(timestamp), 0, Color.blue);
+            texture.Apply();
+            Process.chartData.texture = texture;
+            Rect rec = new Rect(0, 0, texture.width, 1);
+            Process.chartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.02f);
         }
     }
 }
