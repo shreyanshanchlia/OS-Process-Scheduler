@@ -9,7 +9,14 @@ public class SaveManager : MonoBehaviour
     public TMP_InputField inputField;
     public void LoadPrefs()
     {
-        inputField.text = PlayerPrefs.GetInt(SaveString).ToString();
+        if (PlayerPrefs.HasKey(SaveString))
+        {
+            inputField.text = PlayerPrefs.GetInt(SaveString).ToString();
+        }
+        else
+        {
+            PlayerPrefs.SetInt(SaveString, int.Parse(inputField.text));
+        }
     }
     public void SavePrefs(string value)
     {
@@ -18,5 +25,9 @@ public class SaveManager : MonoBehaviour
     private void OnEnable()
     {
         LoadPrefs();
+    }
+    private void Start()
+    {
+        //PlayerPrefs.DeleteAll();
     }
 }
