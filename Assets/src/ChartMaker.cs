@@ -9,14 +9,20 @@ public class ChartMaker : MonoBehaviour
     public GameObject ganttChartHolder;
     public GanttChartSummaryManager GanttChartManager;
     private List<PropertiesData> summaryAdded;
+    private List<GameObject> GanttChartDataHolders;
     public TabData tabData;
     private void Start()
     {
         RefreshSummaryList();
     }
 
-    private void RefreshSummaryList()
+    public void RefreshSummaryList()
     {
+        foreach (GameObject @object in GanttChartDataHolders)
+        {
+            Destroy(@object);
+        }
+        GanttChartDataHolders = new List<GameObject>();
         summaryAdded = new List<PropertiesData>();
     }
 
@@ -35,6 +41,7 @@ public class ChartMaker : MonoBehaviour
             GameObject @object = new GameObject("GanttChartDataHolder");
             @object.transform.parent = this.transform;
             @object.AddComponent<GanttChartData>();
+            GanttChartDataHolders.Add(@object);
             GanttChartData ganttChartData = @object.GetComponent<GanttChartData>();
             ganttChartData.ProcessName = Process.ProcessName;
             Texture2D texture;
@@ -66,7 +73,7 @@ public class ChartMaker : MonoBehaviour
             ganttChartData.texture = texture;
             Rect rec = new Rect(0, 0, texture.width, 1);
             //float scalingFactor = 2.0f / Mathf.Max((int)Mathf.Log10((int)(timestamp + Process.remainingBurstTime)), 3);
-            ganttChartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.02f);
+            ganttChartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.01f);
             GanttChartManager.DetailedGanttChart.Add(ganttChartData);
             Process.chartData = ganttChartData;
         }
@@ -92,8 +99,7 @@ public class ChartMaker : MonoBehaviour
             texture.Apply();
             Rect rec = new Rect(0, 0, texture.width, 1);
             Process.chartData.texture = texture;
-            //float scalingFactor = 2.0f / Mathf.Max((int)Mathf.Log10((int)(timestamp + Process.remainingBurstTime)), 3);
-            Process.chartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.02f);
+            Process.chartData.ProcessingPos = Sprite.Create(texture, rec, Vector2.zero, 0.01f);
         }
     }
 }

@@ -6,7 +6,9 @@ using TMPro;
 public class Scheduler : MonoBehaviour
 {
     [SerializeField] private TabData tabData;
+    public ChartMaker chartMaker;
     public SummaryManager summaryManager;
+    public GanttChartSummaryManager ganttChartSummaryManager;
     public FCFSScheduler fcfsScheduler;
     public SJFScheduler sjfScheduler;
     public SJFPreemptiveScheduler sjfPreemptiveScheduler;
@@ -81,6 +83,8 @@ public class Scheduler : MonoBehaviour
             Destroy(element.gameObject);
         }
         summaryManager.summaryDatas = new List<SummaryData>();
+        ganttChartSummaryManager.DetailedGanttChart = new List<GanttChartData>();
+        chartMaker.RefreshSummaryList();
         fcfsScheduler.reset();
         sjfScheduler.reset();
         sjfPreemptiveScheduler.reset();
