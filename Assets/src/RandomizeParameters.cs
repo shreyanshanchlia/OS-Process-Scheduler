@@ -12,6 +12,13 @@ public class RandomizeParameters : MonoBehaviour
 
     public void RandomizeValues()
     {
+        minArrivalTime = PlayerPrefs.GetInt("minArrivalTime", 0);
+        maxArrivalTime = PlayerPrefs.GetInt("maxArrivalTime", 20);
+        minBurstTime = PlayerPrefs.GetInt("minBurstTime", 1);
+        maxBurstTime = PlayerPrefs.GetInt("maxBurstTime", 10);
+        minPriority = PlayerPrefs.GetInt("minPriority", 0);
+        maxPriority = PlayerPrefs.GetInt("maxPriority", 25);
+
         ArrivalTime.text = Random.Range(minArrivalTime, maxArrivalTime).ToString();
         BurstTime.text = Random.Range(minBurstTime, maxBurstTime).ToString();
         if(Priority!=null)
