@@ -21,7 +21,7 @@ public class RandomizeParameters : MonoBehaviour
 
         ArrivalTime.text = Random.Range(minArrivalTime, maxArrivalTime).ToString();
         BurstTime.text = Random.Range(minBurstTime, maxBurstTime).ToString();
-        if(Priority!=null)
+        if (Priority != null)
             Priority.text = Random.Range(minPriority, maxPriority).ToString();
     }
 }
