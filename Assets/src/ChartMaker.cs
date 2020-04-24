@@ -13,7 +13,7 @@ public class ChartMaker : MonoBehaviour
     public TabData tabData;
     private void Start()
     {
-        RefreshSummaryList();
+        //RefreshSummaryList();
     }
 
     public void RefreshSummaryList()
