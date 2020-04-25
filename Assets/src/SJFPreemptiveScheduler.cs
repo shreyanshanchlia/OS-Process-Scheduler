@@ -12,7 +12,6 @@ public class SJFPreemptiveScheduler : MonoBehaviour
     bool processing = false;
     PropertiesData CurrentlyProcessing;
     private float ProcessorFreeAt = 0.0f;
-
     public void run()
     {
         reset();
@@ -98,7 +97,7 @@ public class SJFPreemptiveScheduler : MonoBehaviour
                 {
                     float minBurst = arrived[0].BurstTime;
                     CurrentlyProcessing = arrived[0];
-                    foreach (PropertiesData processes in arrived)
+                    foreach (PropertiesData processes in arrived.ToArray())
                     {
                         if (processes.BurstTime < minBurst)
                         {

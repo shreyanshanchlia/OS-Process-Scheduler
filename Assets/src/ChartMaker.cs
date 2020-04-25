@@ -47,7 +47,7 @@ public class ChartMaker : MonoBehaviour
             }
             catch
             {
-                print("Malfunction");
+                print("Caught unknown error!");
             }
             GanttChartData ganttChartData = @object.GetComponent<GanttChartData>();
             ganttChartData.ProcessName = Process.ProcessName;
