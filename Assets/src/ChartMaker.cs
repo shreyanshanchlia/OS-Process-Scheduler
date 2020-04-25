@@ -13,17 +13,17 @@ public class ChartMaker : MonoBehaviour
     public TabData tabData;
     private void Start()
     {
-
+        summaryAdded = new List<PropertiesData>();
     }
 
     public void RefreshSummaryList()
     {
+        summaryAdded = new List<PropertiesData>();
         foreach (GameObject @object in GanttChartDataHolders.ToArray())
         {
             Destroy(@object);
         }
         GanttChartDataHolders = new List<GameObject>();
-        summaryAdded = new List<PropertiesData>();
     }
 
     public void GenerateChartElement(PropertiesData Process, float timestamp)
@@ -37,11 +37,18 @@ public class ChartMaker : MonoBehaviour
     {
         if (Process.chartData == null)
         {
-            summaryAdded.Add(Process);
             GameObject @object = new GameObject("GanttChartDataHolder");
-            @object.transform.parent = this.transform;
-            @object.AddComponent<GanttChartData>();
-            GanttChartDataHolders.Add(@object);
+            try
+            {
+                summaryAdded.Add(Process);
+                @object.transform.parent = this.transform;
+                @object.AddComponent<GanttChartData>();
+                GanttChartDataHolders.Add(@object);
+            }
+            catch
+            {
+                print("Malfunction");
+            }
             GanttChartData ganttChartData = @object.GetComponent<GanttChartData>();
             ganttChartData.ProcessName = Process.ProcessName;
             Texture2D texture;
