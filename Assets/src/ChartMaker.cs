@@ -19,7 +19,7 @@ public class ChartMaker : MonoBehaviour
     public void RefreshSummaryList()
     {
         summaryAdded = new List<PropertiesData>();
-        foreach (GameObject @object in GanttChartDataHolders.ToArray())
+        foreach (GameObject @object in GanttChartDataHolders)
         {
             Destroy(@object);
         }
