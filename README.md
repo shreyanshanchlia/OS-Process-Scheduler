@@ -2,7 +2,6 @@
 Visualize various scheduling operations for operating systems at realtime. 
 ### Development Tools
 *	Unity Engine
-*	Visual Studio as code Editor
 ### Available Schedulers
 * First Come First Serve
 * Shortest Job First (Non-Preemptive)
